@@ -1,0 +1,94 @@
+aid: fountain-com
+name: Fountain
+review:
+  question: Does Fountain expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-01'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Fountain's real-time integration
+    surface is HTTP webhooks (outbound POST callbacks configured via
+    /v2/webhook-settings), not a streaming transport. Under API Evangelist
+    scope, plain HTTP webhook callbacks alone are not modeled as AsyncAPI
+    unless there is an SSE or WebSocket stream, and none is documented here.
+findings:
+  summary: |
+    Fountain does not publish a documented public WebSocket API. The Fountain
+    Developer API (Hire API v2) is a REST/HTTPS API under
+    https://api.fountain.com/v2, authenticated with the X-ACCESS-TOKEN
+    header. Real-time event delivery is provided by outbound HTTP webhooks
+    configured through webhook-settings, not by ws:// or wss:// connections.
+    No streaming (SSE or WebSocket) endpoint is documented for applicants,
+    scheduling, or any other resource.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.fountain.com/v2
+      documented: true
+    - protocol: Webhooks
+      scheme: https
+      note: Outbound HTTP POST callbacks configured via /v2/webhook-settings. Not a bidirectional stream.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Fountain's developer reference as of the review date.
+  authentication:
+    scheme: apiKey
+    in: header
+    name: X-ACCESS-TOKEN
+    note: API access must be requested from Fountain support; token found in the Fountain account.
+  endpointsConfirmedRest:
+    - GET    https://api.fountain.com/v2/applicants
+    - POST   https://api.fountain.com/v2/applicants
+    - GET    https://api.fountain.com/v2/applicants/{id}
+    - PUT    https://api.fountain.com/v2/applicants/{id}
+    - DELETE https://api.fountain.com/v2/applicants/{id}
+    - PUT    https://api.fountain.com/v2/applicants/{id}/advance
+    - POST   https://api.fountain.com/v2/applicants/advance
+    - GET    https://api.fountain.com/v2/applicants/{id}/transitions
+    - GET    https://api.fountain.com/v2/applicants/{id}/duplicates
+    - GET    https://api.fountain.com/v2/funnels
+    - POST   https://api.fountain.com/v2/funnels
+    - GET    https://api.fountain.com/v2/funnels/{id}
+    - PUT    https://api.fountain.com/v2/funnels/{id}
+    - DELETE https://api.fountain.com/v2/funnels/{id}
+    - GET    https://api.fountain.com/v2/funnels/{funnel_id}/stages
+    - GET    https://api.fountain.com/v2/positions
+    - POST   https://api.fountain.com/v2/positions
+    - GET    https://api.fountain.com/v2/positions/{id}
+    - GET    https://api.fountain.com/v2/stages/{id}
+    - GET    https://api.fountain.com/v2/stages/{id}/available-slots
+    - GET    https://api.fountain.com/v2/stages/{stage_id}/labels
+    - GET    https://api.fountain.com/v2/applicants/{id}/labels
+    - PUT    https://api.fountain.com/v2/applicants/{id}/labels/{title}
+    - POST   https://api.fountain.com/v2/available-slots
+    - PATCH  https://api.fountain.com/v2/available-slots/{id}
+    - DELETE https://api.fountain.com/v2/available-slots/{id}
+    - POST   https://api.fountain.com/v2/available-slots/{id}/confirm
+    - POST   https://api.fountain.com/v2/booked-slots/{id}/cancel
+    - GET    https://api.fountain.com/v2/applicants/{id}/secure-documents
+    - POST   https://api.fountain.com/v2/applicants/{id}/secure-documents-upload
+    - GET    https://api.fountain.com/v2/webhook-settings
+    - POST   https://api.fountain.com/v2/webhook-settings
+    - GET    https://api.fountain.com/v2/workers
+    - GET    https://api.fountain.com/v2/workers/{id}
+sources:
+  - url: https://developer.fountain.com/reference
+    type: APIReference
+    note: All documented endpoints are HTTPS REST under api.fountain.com/v2.
+  - url: https://developer.fountain.com/reference/overview
+    type: Documentation
+    note: Confirms X-ACCESS-TOKEN header auth and REST design; no WebSocket mentioned.
+  - url: https://developer.fountain.com/reference/webhooks
+    type: Documentation
+    note: Real-time delivery is via outbound HTTP webhook settings, not a socket stream.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket or SSE streaming surface exists; real-time is HTTP webhooks
+    only. No AsyncAPI document was authored. The apis.yml catalogs the REST
+    Hire API v2 resource groups with an OpenAPI 3.0 document and Postman /
+    Open Collection artifacts.

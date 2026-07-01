@@ -1,0 +1,659 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fountain Developer API (Hire API v2)",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "apikey": {
+        "key": "X-ACCESS-TOKEN",
+        "value": "{{accessToken}}",
+        "in": "header"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Applicants",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all applicants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/applicants"
+          },
+          "docs": "List all applicants"
+        },
+        {
+          "info": {
+            "name": "Create an applicant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/applicants",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an applicant"
+        },
+        {
+          "info": {
+            "name": "Get applicant info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/applicants/{id}"
+          },
+          "docs": "Get applicant info"
+        },
+        {
+          "info": {
+            "name": "Update applicant info",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.fountain.com/v2/applicants/{id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update applicant info"
+        },
+        {
+          "info": {
+            "name": "Delete an applicant",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.fountain.com/v2/applicants/{id}"
+          },
+          "docs": "Delete an applicant"
+        },
+        {
+          "info": {
+            "name": "Advance an applicant",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.fountain.com/v2/applicants/{id}/advance",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Advance an applicant"
+        },
+        {
+          "info": {
+            "name": "Bulk advance multiple applicants",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/applicants/advance",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk advance multiple applicants"
+        },
+        {
+          "info": {
+            "name": "Get transition history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/applicants/{id}/transitions"
+          },
+          "docs": "Get transition history"
+        },
+        {
+          "info": {
+            "name": "Notify applicant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/applicants/notify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Notify applicant"
+        },
+        {
+          "info": {
+            "name": "Get duplicate applicants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/applicants/{id}/duplicates"
+          },
+          "docs": "Get duplicate applicants"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Openings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all openings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/funnels"
+          },
+          "docs": "List all openings"
+        },
+        {
+          "info": {
+            "name": "Create an opening",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/funnels",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an opening"
+        },
+        {
+          "info": {
+            "name": "Retrieve opening",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/funnels/{id}"
+          },
+          "docs": "Retrieve opening"
+        },
+        {
+          "info": {
+            "name": "Update opening",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.fountain.com/v2/funnels/{id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update opening"
+        },
+        {
+          "info": {
+            "name": "Delete opening",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.fountain.com/v2/funnels/{id}"
+          },
+          "docs": "Delete opening"
+        },
+        {
+          "info": {
+            "name": "List opening stages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/funnels/{funnel_id}/stages"
+          },
+          "docs": "List opening stages"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Positions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/positions"
+          },
+          "docs": "List positions"
+        },
+        {
+          "info": {
+            "name": "Create a position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/positions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a position"
+        },
+        {
+          "info": {
+            "name": "Retrieve position",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/positions/{id}"
+          },
+          "docs": "Retrieve position"
+        },
+        {
+          "info": {
+            "name": "Update position",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.fountain.com/v2/positions/{id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update position"
+        },
+        {
+          "info": {
+            "name": "Delete position",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.fountain.com/v2/positions/{id}"
+          },
+          "docs": "Delete position"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Stages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/stages/{id}"
+          },
+          "docs": "Retrieve stage"
+        },
+        {
+          "info": {
+            "name": "List available slots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/stages/{id}/available-slots"
+          },
+          "docs": "List available slots"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Scheduling",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create calendar slots",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/available-slots",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create calendar slots"
+        },
+        {
+          "info": {
+            "name": "Update calendar slot",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.fountain.com/v2/available-slots/{id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update calendar slot"
+        },
+        {
+          "info": {
+            "name": "Delete calendar slot",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.fountain.com/v2/available-slots/{id}"
+          },
+          "docs": "Delete calendar slot"
+        },
+        {
+          "info": {
+            "name": "Book available slot",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/available-slots/{id}/confirm",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Book available slot"
+        },
+        {
+          "info": {
+            "name": "Cancel booked slot",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/booked-slots/{id}/cancel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel booked slot"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Labels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all labels in stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/stages/{stage_id}/labels"
+          },
+          "docs": "List all labels in stage"
+        },
+        {
+          "info": {
+            "name": "List labels for applicant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/applicants/{id}/labels"
+          },
+          "docs": "List labels for applicant"
+        },
+        {
+          "info": {
+            "name": "Update label for applicant",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.fountain.com/v2/applicants/{id}/labels/{title}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update label for applicant"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get applicant files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/applicants/{id}/secure-documents"
+          },
+          "docs": "Get applicant files"
+        },
+        {
+          "info": {
+            "name": "Upload file to S3",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/applicants/{id}/secure-documents-upload",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upload file to S3"
+        },
+        {
+          "info": {
+            "name": "Link applicant to S3 files",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/applicants/{id}/secure-documents-link-upload",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Link applicant to S3 files"
+        },
+        {
+          "info": {
+            "name": "Approve applicant documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/applicants/{id}/secure-documents-approve",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Approve applicant documents"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List webhook settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/webhook-settings"
+          },
+          "docs": "List webhook settings"
+        },
+        {
+          "info": {
+            "name": "Create webhook setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/webhook-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create webhook setting"
+        },
+        {
+          "info": {
+            "name": "Retrieve webhook setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/webhook-settings/{id}"
+          },
+          "docs": "Retrieve webhook setting"
+        },
+        {
+          "info": {
+            "name": "Delete webhook setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.fountain.com/v2/webhook-settings/{id}"
+          },
+          "docs": "Delete webhook setting"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Workers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List workers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/workers"
+          },
+          "docs": "List workers"
+        },
+        {
+          "info": {
+            "name": "Get worker info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/workers/{id}"
+          },
+          "docs": "Get worker info"
+        },
+        {
+          "info": {
+            "name": "Update worker",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.fountain.com/v2/workers/{id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update worker"
+        },
+        {
+          "info": {
+            "name": "Activate worker",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/workers/{id}/activate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Activate worker"
+        },
+        {
+          "info": {
+            "name": "Deactivate worker",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/workers/{id}/deactivate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deactivate worker"
+        }
+      ]
+    }
+  ]
+}

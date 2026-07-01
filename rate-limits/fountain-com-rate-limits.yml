@@ -1,0 +1,58 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Fountain
+providerId: fountain-com
+created: '2026-07-01'
+modified: '2026-07-01'
+reconciled: false
+tags:
+- Hiring
+- Recruiting
+- Applicant Tracking
+- HR Tech
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  The Fountain Developer API enforces per-account rate limits to protect
+  platform stability. Fountain does not publish specific numeric limits in
+  its public reference; clients should page results (cursor / page +
+  per_page), handle HTTP 429 responses, and back off. Bulk endpoints
+  (bulk advance, bulk transitions, bulk booked-slots) exist to reduce
+  request volume for high-throughput hiring operations.
+notes: >-
+  Specific per-endpoint numeric limits are not published by Fountain and are
+  not reconciled in this artifact. Confirm with Fountain support during
+  reconciliation, and honor Retry-After when throttled.
+sources:
+- https://developer.fountain.com/reference/overview
+- https://developer.fountain.com/reference
+responseCodes:
+  throttled: 429
+limits:
+- name: Requests Per Account
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: Per-account request throttling; specific numeric limit not published.
+- name: Bulk Operations
+  scope: account
+  metric: records
+  limit: see provider documentation
+  notes: Use bulk endpoints (advance, transitions, booked-slots) to reduce request count.
+- name: Pagination
+  scope: request
+  metric: results
+  limit: per_page
+  notes: List endpoints support cursor- and page-based pagination via per_page.
+policies:
+- name: Pagination
+  description: Use cursor or page + per_page to iterate large result sets rather than large single requests.
+- name: Backoff Strategy
+  description: On HTTP 429, implement exponential backoff with jitter and honor any Retry-After header.
+- name: Webhooks Over Polling
+  description: Subscribe to webhook-settings for hiring events instead of polling list endpoints.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

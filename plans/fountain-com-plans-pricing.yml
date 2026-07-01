@@ -1,0 +1,127 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Fountain
+providerId: fountain-com
+created: '2026-07-01'
+modified: '2026-07-01'
+reconciled: false
+tags:
+- Hiring
+- Recruiting
+- Applicant Tracking
+- Frontline Hiring
+- Hourly Workforce
+- HR Tech
+- Plans
+description: >-
+  Fountain is sold as an enterprise SaaS hiring and workforce management
+  platform with sales-quoted, subscription-based pricing rather than a public
+  self-service price list. Packaging is typically tiered by product suite
+  (Hire, Onboard, Workforce Management) and priced by seats, hiring volume,
+  and modules. The Developer API is included with a Fountain subscription;
+  API access must be requested from Fountain support.
+notes: >-
+  Fountain does not publish list prices. All figures below are qualitative
+  and reflect the sales-quoted, contact-sales model. Confirm current
+  packaging and pricing with Fountain sales during reconciliation.
+sources:
+- https://www.fountain.com/pricing
+- https://developer.fountain.com/reference
+- https://developer.fountain.com/reference/overview
+plans:
+- id: fountain-hire
+  name: Fountain Hire
+  type: subscription
+  description: >-
+    High-volume applicant sourcing, automated screening, scheduling, and
+    hiring across funnels (openings). Sales-quoted by seats and hiring volume.
+  entries:
+  - label: Hire Subscription
+    name: hire_subscription
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Applicants
+  - name: Openings (Funnels)
+  - name: Positions
+  - name: Stages
+  - name: Automated Screening
+  - name: Scheduling
+  - name: Labels
+  - name: Developer API access
+- id: fountain-onboard
+  name: Fountain Onboard
+  type: subscription
+  description: >-
+    Compliant document collection, e-signature, and new-hire onboarding
+    workflows. Sales-quoted add-on to the Hire suite.
+  entries:
+  - label: Onboard Subscription
+    name: onboard_subscription
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Secure Documents
+  - name: Document Approval
+  - name: Compliance Workflows
+- id: fountain-workforce
+  name: Fountain Workforce Management
+  type: subscription
+  description: >-
+    Post-hire worker management, scheduling, and shift operations for the
+    hourly workforce. Sales-quoted add-on.
+  entries:
+  - label: Workforce Subscription
+    name: workforce_subscription
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Workers
+  - name: Shifts
+  - name: Worker Activation / Deactivation
+- id: fountain-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Full-suite enterprise agreements with volume commitments, SSO, advanced
+    integrations, partner/embedded flows, dedicated support, and negotiated
+    terms. Contact Fountain sales.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Custom Volume Pricing
+  - name: SSO / SCIM
+  - name: Partner / Embedded Onboarding
+  - name: Webhooks
+  - name: Dedicated Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

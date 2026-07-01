@@ -1,0 +1,1510 @@
+{
+  "info": {
+    "_postman_id": "5b942922-ebf6-44e7-a834-eb237fb75fdc",
+    "name": "Fountain Developer API (Hire API v2)",
+    "description": "Fountain high-volume hiring platform - Hire API v2. Authenticate with the X-ACCESS-TOKEN header.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Applicants",
+      "item": [
+        {
+          "name": "List all applicants",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants"
+              ]
+            },
+            "description": "List all applicants"
+          },
+          "response": []
+        },
+        {
+          "name": "Create an applicant",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants"
+              ]
+            },
+            "description": "Create an applicant",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get applicant info",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants",
+                "{id}"
+              ]
+            },
+            "description": "Get applicant info"
+          },
+          "response": []
+        },
+        {
+          "name": "Update applicant info",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants",
+                "{id}"
+              ]
+            },
+            "description": "Update applicant info",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete an applicant",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants",
+                "{id}"
+              ]
+            },
+            "description": "Delete an applicant"
+          },
+          "response": []
+        },
+        {
+          "name": "Advance an applicant",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants/{id}/advance",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants",
+                "{id}",
+                "advance"
+              ]
+            },
+            "description": "Advance an applicant",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Bulk advance multiple applicants",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants/advance",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants",
+                "advance"
+              ]
+            },
+            "description": "Bulk advance multiple applicants",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get transition history",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants/{id}/transitions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants",
+                "{id}",
+                "transitions"
+              ]
+            },
+            "description": "Get transition history"
+          },
+          "response": []
+        },
+        {
+          "name": "Notify applicant",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants/notify",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants",
+                "notify"
+              ]
+            },
+            "description": "Notify applicant",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get duplicate applicants",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants/{id}/duplicates",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants",
+                "{id}",
+                "duplicates"
+              ]
+            },
+            "description": "Get duplicate applicants"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Openings",
+      "item": [
+        {
+          "name": "List all openings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/funnels",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "funnels"
+              ]
+            },
+            "description": "List all openings"
+          },
+          "response": []
+        },
+        {
+          "name": "Create an opening",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/funnels",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "funnels"
+              ]
+            },
+            "description": "Create an opening",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve opening",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/funnels/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "funnels",
+                "{id}"
+              ]
+            },
+            "description": "Retrieve opening"
+          },
+          "response": []
+        },
+        {
+          "name": "Update opening",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/funnels/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "funnels",
+                "{id}"
+              ]
+            },
+            "description": "Update opening",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete opening",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/funnels/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "funnels",
+                "{id}"
+              ]
+            },
+            "description": "Delete opening"
+          },
+          "response": []
+        },
+        {
+          "name": "List opening stages",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/funnels/{funnel_id}/stages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "funnels",
+                "{funnel_id}",
+                "stages"
+              ]
+            },
+            "description": "List opening stages"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Positions",
+      "item": [
+        {
+          "name": "List positions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/positions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "positions"
+              ]
+            },
+            "description": "List positions"
+          },
+          "response": []
+        },
+        {
+          "name": "Create a position",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/positions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "positions"
+              ]
+            },
+            "description": "Create a position",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve position",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/positions/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "positions",
+                "{id}"
+              ]
+            },
+            "description": "Retrieve position"
+          },
+          "response": []
+        },
+        {
+          "name": "Update position",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/positions/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "positions",
+                "{id}"
+              ]
+            },
+            "description": "Update position",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete position",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/positions/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "positions",
+                "{id}"
+              ]
+            },
+            "description": "Delete position"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Stages",
+      "item": [
+        {
+          "name": "Retrieve stage",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/stages/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stages",
+                "{id}"
+              ]
+            },
+            "description": "Retrieve stage"
+          },
+          "response": []
+        },
+        {
+          "name": "List available slots",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/stages/{id}/available-slots",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stages",
+                "{id}",
+                "available-slots"
+              ]
+            },
+            "description": "List available slots"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Scheduling",
+      "item": [
+        {
+          "name": "Create calendar slots",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/available-slots",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "available-slots"
+              ]
+            },
+            "description": "Create calendar slots",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update calendar slot",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/available-slots/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "available-slots",
+                "{id}"
+              ]
+            },
+            "description": "Update calendar slot",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete calendar slot",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/available-slots/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "available-slots",
+                "{id}"
+              ]
+            },
+            "description": "Delete calendar slot"
+          },
+          "response": []
+        },
+        {
+          "name": "Book available slot",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/available-slots/{id}/confirm",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "available-slots",
+                "{id}",
+                "confirm"
+              ]
+            },
+            "description": "Book available slot",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cancel booked slot",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/booked-slots/{id}/cancel",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "booked-slots",
+                "{id}",
+                "cancel"
+              ]
+            },
+            "description": "Cancel booked slot",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Labels",
+      "item": [
+        {
+          "name": "List all labels in stage",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/stages/{stage_id}/labels",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stages",
+                "{stage_id}",
+                "labels"
+              ]
+            },
+            "description": "List all labels in stage"
+          },
+          "response": []
+        },
+        {
+          "name": "List labels for applicant",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants/{id}/labels",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants",
+                "{id}",
+                "labels"
+              ]
+            },
+            "description": "List labels for applicant"
+          },
+          "response": []
+        },
+        {
+          "name": "Update label for applicant",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants/{id}/labels/{title}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants",
+                "{id}",
+                "labels",
+                "{title}"
+              ]
+            },
+            "description": "Update label for applicant",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Documents",
+      "item": [
+        {
+          "name": "Get applicant files",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants/{id}/secure-documents",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants",
+                "{id}",
+                "secure-documents"
+              ]
+            },
+            "description": "Get applicant files"
+          },
+          "response": []
+        },
+        {
+          "name": "Upload file to S3",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants/{id}/secure-documents-upload",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants",
+                "{id}",
+                "secure-documents-upload"
+              ]
+            },
+            "description": "Upload file to S3",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Link applicant to S3 files",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants/{id}/secure-documents-link-upload",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants",
+                "{id}",
+                "secure-documents-link-upload"
+              ]
+            },
+            "description": "Link applicant to S3 files",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Approve applicant documents",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applicants/{id}/secure-documents-approve",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applicants",
+                "{id}",
+                "secure-documents-approve"
+              ]
+            },
+            "description": "Approve applicant documents",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Webhooks",
+      "item": [
+        {
+          "name": "List webhook settings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/webhook-settings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhook-settings"
+              ]
+            },
+            "description": "List webhook settings"
+          },
+          "response": []
+        },
+        {
+          "name": "Create webhook setting",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/webhook-settings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhook-settings"
+              ]
+            },
+            "description": "Create webhook setting",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve webhook setting",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/webhook-settings/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhook-settings",
+                "{id}"
+              ]
+            },
+            "description": "Retrieve webhook setting"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete webhook setting",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/webhook-settings/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhook-settings",
+                "{id}"
+              ]
+            },
+            "description": "Delete webhook setting"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Workers",
+      "item": [
+        {
+          "name": "List workers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/workers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workers"
+              ]
+            },
+            "description": "List workers"
+          },
+          "response": []
+        },
+        {
+          "name": "Get worker info",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/workers/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workers",
+                "{id}"
+              ]
+            },
+            "description": "Get worker info"
+          },
+          "response": []
+        },
+        {
+          "name": "Update worker",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/workers/{id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workers",
+                "{id}"
+              ]
+            },
+            "description": "Update worker",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Activate worker",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/workers/{id}/activate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workers",
+                "{id}",
+                "activate"
+              ]
+            },
+            "description": "Activate worker",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deactivate worker",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-ACCESS-TOKEN",
+                "value": "{{accessToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/workers/{id}/deactivate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workers",
+                "{id}",
+                "deactivate"
+              ]
+            },
+            "description": "Deactivate worker",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.fountain.com/v2"
+    },
+    {
+      "key": "accessToken",
+      "value": ""
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-ACCESS-TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{accessToken}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  }
+}
