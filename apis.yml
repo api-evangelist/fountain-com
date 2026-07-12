@@ -202,6 +202,12 @@ apis:
   description: List, retrieve, update, activate, and deactivate hired workers for
     post-hire workforce management across the Fountain product suite.
 common:
+- type: VulnerabilityDisclosure
+  url: security/fountain-com-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/fountain-com-domain-security.yml
+- type: Authentication
+  url: authentication/fountain-com-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/fountaininc
 - type: Website

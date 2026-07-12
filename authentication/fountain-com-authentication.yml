@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/fountain-com-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: AccessToken
+  type: apiKey
+  in: header
+  parameter: X-ACCESS-TOKEN
+  description: Your Fountain API token. Request API access by emailing support@fountain.com;
+    find your token in your Fountain account settings.
+  sources:
+  - openapi/fountain-com-openapi.yml
