@@ -1,0 +1,128 @@
+openapi: 3.0.3
+info:
+  title: Fountain Developer API (Hire API v2) Applicants Webhooks API
+  description: The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.
+  termsOfService: https://www.fountain.com/legal/terms-of-use
+  contact:
+    name: Fountain Support
+    email: support@fountain.com
+    url: https://developer.fountain.com/reference
+  version: '2.0'
+servers:
+- url: https://api.fountain.com/v2
+  description: Fountain Hire API v2
+security:
+- AccessToken: []
+tags:
+- name: Webhooks
+  description: Manage webhook settings for hiring event notifications.
+paths:
+  /webhook-settings:
+    get:
+      operationId: listWebhookSettings
+      tags:
+      - Webhooks
+      summary: List webhook settings
+      responses:
+        '200':
+          description: A list of webhook settings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSettingList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createWebhookSetting
+      tags:
+      - Webhooks
+      summary: Create webhook setting
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookSetting'
+      responses:
+        '201':
+          description: The created webhook setting.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSetting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /webhook-settings/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getWebhookSetting
+      tags:
+      - Webhooks
+      summary: Retrieve webhook setting
+      responses:
+        '200':
+          description: The webhook setting.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSetting'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteWebhookSetting
+      tags:
+      - Webhooks
+      summary: Delete webhook setting
+      responses:
+        '204':
+          description: Webhook setting deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    WebhookSetting:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+          format: uri
+        event:
+          type: string
+        funnel_id:
+          type: string
+        stage_id:
+          type: string
+    WebhookSettingList:
+      type: object
+      properties:
+        webhook_settings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookSetting'
+  responses:
+    Unauthorized:
+      description: Missing or invalid X-ACCESS-TOKEN.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: header
+      name: X-ACCESS-TOKEN
+      description: Your Fountain API token. Request API access by emailing support@fountain.com; find your token in your Fountain account settings.

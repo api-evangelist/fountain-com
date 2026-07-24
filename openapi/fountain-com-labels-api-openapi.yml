@@ -1,0 +1,121 @@
+openapi: 3.0.3
+info:
+  title: Fountain Developer API (Hire API v2) Applicants Labels API
+  description: The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.
+  termsOfService: https://www.fountain.com/legal/terms-of-use
+  contact:
+    name: Fountain Support
+    email: support@fountain.com
+    url: https://developer.fountain.com/reference
+  version: '2.0'
+servers:
+- url: https://api.fountain.com/v2
+  description: Fountain Hire API v2
+security:
+- AccessToken: []
+tags:
+- name: Labels
+  description: Assign and manage labels on applicants and stages.
+paths:
+  /stages/{stage_id}/labels:
+    parameters:
+    - name: stage_id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: listStageLabels
+      tags:
+      - Labels
+      summary: List all labels in stage
+      responses:
+        '200':
+          description: Labels used in the stage.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LabelList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /applicants/{id}/labels:
+    parameters:
+    - $ref: '#/components/parameters/ApplicantId'
+    get:
+      operationId: listApplicantLabels
+      tags:
+      - Labels
+      summary: List labels for applicant
+      responses:
+        '200':
+          description: Labels on the applicant.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LabelList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /applicants/{id}/labels/{title}:
+    parameters:
+    - $ref: '#/components/parameters/ApplicantId'
+    - name: title
+      in: path
+      required: true
+      description: Label title.
+      schema:
+        type: string
+    put:
+      operationId: updateApplicantLabel
+      tags:
+      - Labels
+      summary: Update label for applicant
+      description: Assigns or removes a label on an applicant.
+      responses:
+        '200':
+          description: Label updated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    ApplicantId:
+      name: id
+      in: path
+      required: true
+      description: The applicant ID.
+      schema:
+        type: string
+  schemas:
+    Label:
+      type: object
+      properties:
+        title:
+          type: string
+        color:
+          type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    LabelList:
+      type: object
+      properties:
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+  responses:
+    Unauthorized:
+      description: Missing or invalid X-ACCESS-TOKEN.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: header
+      name: X-ACCESS-TOKEN
+      description: Your Fountain API token. Request API access by emailing support@fountain.com; find your token in your Fountain account settings.

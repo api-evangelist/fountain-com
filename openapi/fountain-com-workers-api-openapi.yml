@@ -1,0 +1,165 @@
+openapi: 3.0.3
+info:
+  title: Fountain Developer API (Hire API v2) Applicants Workers API
+  description: The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.
+  termsOfService: https://www.fountain.com/legal/terms-of-use
+  contact:
+    name: Fountain Support
+    email: support@fountain.com
+    url: https://developer.fountain.com/reference
+  version: '2.0'
+servers:
+- url: https://api.fountain.com/v2
+  description: Fountain Hire API v2
+security:
+- AccessToken: []
+tags:
+- name: Workers
+  description: Manage post-hire workers.
+paths:
+  /workers:
+    get:
+      operationId: listWorkers
+      tags:
+      - Workers
+      summary: List workers
+      responses:
+        '200':
+          description: A list of workers.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkerList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /workers/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getWorker
+      tags:
+      - Workers
+      summary: Get worker info
+      responses:
+        '200':
+          description: The worker.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Worker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    patch:
+      operationId: updateWorker
+      tags:
+      - Workers
+      summary: Update worker
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Worker'
+      responses:
+        '200':
+          description: The updated worker.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Worker'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /workers/{id}/activate:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: activateWorker
+      tags:
+      - Workers
+      summary: Activate worker
+      responses:
+        '200':
+          description: Worker activated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /workers/{id}/deactivate:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: deactivateWorker
+      tags:
+      - Workers
+      summary: Deactivate worker
+      responses:
+        '200':
+          description: Worker deactivated.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Worker:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        status:
+          type: string
+        position_id:
+          type: string
+        location_id:
+          type: string
+    WorkerList:
+      type: object
+      properties:
+        workers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Worker'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Pagination:
+      type: object
+      properties:
+        next_cursor:
+          type: string
+        per_page:
+          type: integer
+        total:
+          type: integer
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid X-ACCESS-TOKEN.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: header
+      name: X-ACCESS-TOKEN
+      description: Your Fountain API token. Request API access by emailing support@fountain.com; find your token in your Fountain account settings.

@@ -1,0 +1,158 @@
+openapi: 3.0.3
+info:
+  title: Fountain Developer API (Hire API v2) Applicants Positions API
+  description: The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.
+  termsOfService: https://www.fountain.com/legal/terms-of-use
+  contact:
+    name: Fountain Support
+    email: support@fountain.com
+    url: https://developer.fountain.com/reference
+  version: '2.0'
+servers:
+- url: https://api.fountain.com/v2
+  description: Fountain Hire API v2
+security:
+- AccessToken: []
+tags:
+- name: Positions
+  description: Manage the job positions applicants are hired into.
+paths:
+  /positions:
+    get:
+      operationId: listPositions
+      tags:
+      - Positions
+      summary: List positions
+      responses:
+        '200':
+          description: A list of positions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PositionList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createPosition
+      tags:
+      - Positions
+      summary: Create a position
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Position'
+      responses:
+        '201':
+          description: The created position.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Position'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /positions/{id}:
+    parameters:
+    - $ref: '#/components/parameters/PositionId'
+    get:
+      operationId: getPosition
+      tags:
+      - Positions
+      summary: Retrieve position
+      responses:
+        '200':
+          description: The position.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Position'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      operationId: updatePosition
+      tags:
+      - Positions
+      summary: Update position
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Position'
+      responses:
+        '200':
+          description: The updated position.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Position'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deletePosition
+      tags:
+      - Positions
+      summary: Delete position
+      responses:
+        '204':
+          description: Position deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    PositionId:
+      name: id
+      in: path
+      required: true
+      description: The position ID.
+      schema:
+        type: string
+  schemas:
+    Pagination:
+      type: object
+      properties:
+        next_cursor:
+          type: string
+        per_page:
+          type: integer
+        total:
+          type: integer
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    Position:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        external_id:
+          type: string
+    PositionList:
+      type: object
+      properties:
+        positions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Position'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+  responses:
+    Unauthorized:
+      description: Missing or invalid X-ACCESS-TOKEN.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: header
+      name: X-ACCESS-TOKEN
+      description: Your Fountain API token. Request API access by emailing support@fountain.com; find your token in your Fountain account settings.

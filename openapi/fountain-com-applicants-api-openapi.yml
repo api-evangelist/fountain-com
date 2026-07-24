@@ -1,0 +1,355 @@
+openapi: 3.0.3
+info:
+  title: Fountain Developer API (Hire API v2) Applicants API
+  description: The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.
+  termsOfService: https://www.fountain.com/legal/terms-of-use
+  contact:
+    name: Fountain Support
+    email: support@fountain.com
+    url: https://developer.fountain.com/reference
+  version: '2.0'
+servers:
+- url: https://api.fountain.com/v2
+  description: Fountain Hire API v2
+security:
+- AccessToken: []
+tags:
+- name: Applicants
+  description: Manage applicants moving through hiring funnels.
+paths:
+  /applicants:
+    get:
+      operationId: listApplicants
+      tags:
+      - Applicants
+      summary: List all applicants
+      description: Returns a paginated list of applicants, filterable by funnel, stage, labels, and timestamps.
+      parameters:
+      - name: funnel_id
+        in: query
+        description: Filter by opening (funnel) ID.
+        schema:
+          type: string
+      - name: stage_id
+        in: query
+        description: Filter by stage ID.
+        schema:
+          type: string
+      - name: stage
+        in: query
+        description: Filter by stage type.
+        schema:
+          type: string
+          enum:
+          - hired
+          - rejected
+          - archived
+          - background_check
+          - interview
+          - signature
+      - name: labels
+        in: query
+        description: Comma-separated, URL-encoded list of label titles.
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        description: Cursor for cursor-based pagination.
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page number for offset pagination.
+        schema:
+          type: integer
+      - name: per_page
+        in: query
+        description: Number of results per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of applicants.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicantList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createApplicant
+      tags:
+      - Applicants
+      summary: Create an applicant
+      description: Creates a new applicant in a specified funnel.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicantCreate'
+      responses:
+        '201':
+          description: The created applicant.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Applicant'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /applicants/{id}:
+    parameters:
+    - $ref: '#/components/parameters/ApplicantId'
+    get:
+      operationId: getApplicant
+      tags:
+      - Applicants
+      summary: Get applicant info
+      responses:
+        '200':
+          description: The applicant.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Applicant'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      operationId: updateApplicant
+      tags:
+      - Applicants
+      summary: Update applicant info
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicantUpdate'
+      responses:
+        '200':
+          description: The updated applicant.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Applicant'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteApplicant
+      tags:
+      - Applicants
+      summary: Delete an applicant
+      responses:
+        '204':
+          description: Applicant deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /applicants/{id}/advance:
+    parameters:
+    - $ref: '#/components/parameters/ApplicantId'
+    put:
+      operationId: advanceApplicant
+      tags:
+      - Applicants
+      summary: Advance an applicant
+      description: Advances an applicant to the next (or specified) stage in the funnel.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                stage_id:
+                  type: string
+                  description: Target stage to advance the applicant to.
+      responses:
+        '200':
+          description: The advanced applicant.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Applicant'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /applicants/advance:
+    post:
+      operationId: bulkAdvanceApplicants
+      tags:
+      - Applicants
+      summary: Bulk advance multiple applicants
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                applicant_ids:
+                  type: array
+                  items:
+                    type: string
+                stage_id:
+                  type: string
+      responses:
+        '200':
+          description: Bulk advance accepted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /applicants/{id}/transitions:
+    parameters:
+    - $ref: '#/components/parameters/ApplicantId'
+    get:
+      operationId: getApplicantTransitions
+      tags:
+      - Applicants
+      summary: Get transition history
+      responses:
+        '200':
+          description: Applicant transition history.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /applicants/notify:
+    post:
+      operationId: notifyApplicant
+      tags:
+      - Applicants
+      summary: Notify applicant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                applicant_id:
+                  type: string
+                message:
+                  type: string
+      responses:
+        '200':
+          description: Notification sent.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /applicants/{id}/duplicates:
+    parameters:
+    - $ref: '#/components/parameters/ApplicantId'
+    get:
+      operationId: getDuplicateApplicants
+      tags:
+      - Applicants
+      summary: Get duplicate applicants
+      responses:
+        '200':
+          description: List of potential duplicate applicants.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicantList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    ApplicantId:
+      name: id
+      in: path
+      required: true
+      description: The applicant ID.
+      schema:
+        type: string
+  schemas:
+    ApplicantCreate:
+      type: object
+      required:
+      - name
+      - funnel_id
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone_number:
+          type: string
+        funnel_id:
+          type: string
+        data:
+          type: object
+          additionalProperties: true
+    ApplicantList:
+      type: object
+      properties:
+        applicants:
+          type: array
+          items:
+            $ref: '#/components/schemas/Applicant'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Pagination:
+      type: object
+      properties:
+        next_cursor:
+          type: string
+        per_page:
+          type: integer
+        total:
+          type: integer
+    ApplicantUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone_number:
+          type: string
+        data:
+          type: object
+          additionalProperties: true
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    Applicant:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone_number:
+          type: string
+        funnel_id:
+          type: string
+        stage_id:
+          type: string
+        status:
+          type: string
+        data:
+          type: object
+          additionalProperties: true
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  responses:
+    Unauthorized:
+      description: Missing or invalid X-ACCESS-TOKEN.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: header
+      name: X-ACCESS-TOKEN
+      description: Your Fountain API token. Request API access by emailing support@fountain.com; find your token in your Fountain account settings.

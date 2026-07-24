@@ -1,0 +1,128 @@
+openapi: 3.0.3
+info:
+  title: Fountain Developer API (Hire API v2) Applicants Documents API
+  description: The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.
+  termsOfService: https://www.fountain.com/legal/terms-of-use
+  contact:
+    name: Fountain Support
+    email: support@fountain.com
+    url: https://developer.fountain.com/reference
+  version: '2.0'
+servers:
+- url: https://api.fountain.com/v2
+  description: Fountain Hire API v2
+security:
+- AccessToken: []
+tags:
+- name: Documents
+  description: Manage secure applicant documents.
+paths:
+  /applicants/{id}/secure-documents:
+    parameters:
+    - $ref: '#/components/parameters/ApplicantId'
+    get:
+      operationId: getApplicantFiles
+      tags:
+      - Documents
+      summary: Get applicant files
+      responses:
+        '200':
+          description: The applicant's secure documents.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /applicants/{id}/secure-documents-upload:
+    parameters:
+    - $ref: '#/components/parameters/ApplicantId'
+    post:
+      operationId: uploadApplicantFileToS3
+      tags:
+      - Documents
+      summary: Upload file to S3
+      description: Requests a pre-signed URL to upload a secure document directly to S3.
+      responses:
+        '200':
+          description: Upload URL details.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /applicants/{id}/secure-documents-link-upload:
+    parameters:
+    - $ref: '#/components/parameters/ApplicantId'
+    post:
+      operationId: linkApplicantS3Files
+      tags:
+      - Documents
+      summary: Link applicant to S3 files
+      responses:
+        '200':
+          description: Files linked to applicant.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /applicants/{id}/secure-documents-approve:
+    parameters:
+    - $ref: '#/components/parameters/ApplicantId'
+    post:
+      operationId: approveApplicantDocuments
+      tags:
+      - Documents
+      summary: Approve applicant documents
+      responses:
+        '200':
+          description: Documents approved.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Document:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+        url:
+          type: string
+          format: uri
+        created_at:
+          type: string
+          format: date-time
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    DocumentList:
+      type: object
+      properties:
+        secure_documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+  parameters:
+    ApplicantId:
+      name: id
+      in: path
+      required: true
+      description: The applicant ID.
+      schema:
+        type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid X-ACCESS-TOKEN.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: header
+      name: X-ACCESS-TOKEN
+      description: Your Fountain API token. Request API access by emailing support@fountain.com; find your token in your Fountain account settings.

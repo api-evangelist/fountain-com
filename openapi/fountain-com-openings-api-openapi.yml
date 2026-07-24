@@ -1,0 +1,205 @@
+openapi: 3.0.3
+info:
+  title: Fountain Developer API (Hire API v2) Applicants Openings API
+  description: The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.
+  termsOfService: https://www.fountain.com/legal/terms-of-use
+  contact:
+    name: Fountain Support
+    email: support@fountain.com
+    url: https://developer.fountain.com/reference
+  version: '2.0'
+servers:
+- url: https://api.fountain.com/v2
+  description: Fountain Hire API v2
+security:
+- AccessToken: []
+tags:
+- name: Openings
+  description: Manage openings (funnels) - the hiring workflows.
+paths:
+  /funnels:
+    get:
+      operationId: listOpenings
+      tags:
+      - Openings
+      summary: List all openings
+      description: Returns all openings (funnels) in the account.
+      responses:
+        '200':
+          description: A list of openings.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpeningList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createOpening
+      tags:
+      - Openings
+      summary: Create an opening
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opening'
+      responses:
+        '201':
+          description: The created opening.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opening'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /funnels/{id}:
+    parameters:
+    - $ref: '#/components/parameters/FunnelId'
+    get:
+      operationId: getOpening
+      tags:
+      - Openings
+      summary: Retrieve opening
+      responses:
+        '200':
+          description: The opening.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opening'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      operationId: updateOpening
+      tags:
+      - Openings
+      summary: Update opening
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Opening'
+      responses:
+        '200':
+          description: The updated opening.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Opening'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteOpening
+      tags:
+      - Openings
+      summary: Delete opening
+      responses:
+        '204':
+          description: Opening deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /funnels/{funnel_id}/stages:
+    parameters:
+    - name: funnel_id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: listOpeningStages
+      tags:
+      - Openings
+      summary: List opening stages
+      responses:
+        '200':
+          description: The stages in the opening.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StageList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Pagination:
+      type: object
+      properties:
+        next_cursor:
+          type: string
+        per_page:
+          type: integer
+        total:
+          type: integer
+    OpeningList:
+      type: object
+      properties:
+        funnels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Opening'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    StageList:
+      type: object
+      properties:
+        stages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stage'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    Stage:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+        position:
+          type: integer
+    Opening:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        position_id:
+          type: string
+        location_id:
+          type: string
+        active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+  responses:
+    Unauthorized:
+      description: Missing or invalid X-ACCESS-TOKEN.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    FunnelId:
+      name: id
+      in: path
+      required: true
+      description: The opening (funnel) ID.
+      schema:
+        type: string
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: header
+      name: X-ACCESS-TOKEN
+      description: Your Fountain API token. Request API access by emailing support@fountain.com; find your token in your Fountain account settings.

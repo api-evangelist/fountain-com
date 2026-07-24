@@ -1,0 +1,161 @@
+openapi: 3.0.3
+info:
+  title: Fountain Developer API (Hire API v2) Applicants Scheduling API
+  description: The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.
+  termsOfService: https://www.fountain.com/legal/terms-of-use
+  contact:
+    name: Fountain Support
+    email: support@fountain.com
+    url: https://developer.fountain.com/reference
+  version: '2.0'
+servers:
+- url: https://api.fountain.com/v2
+  description: Fountain Hire API v2
+security:
+- AccessToken: []
+tags:
+- name: Scheduling
+  description: Manage interview / calendar slots and bookings.
+paths:
+  /available-slots:
+    post:
+      operationId: createAvailableSlots
+      tags:
+      - Scheduling
+      summary: Create calendar slots
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Slot'
+      responses:
+        '201':
+          description: The created slot(s).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Slot'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /available-slots/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    patch:
+      operationId: updateAvailableSlot
+      tags:
+      - Scheduling
+      summary: Update calendar slot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Slot'
+      responses:
+        '200':
+          description: The updated slot.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Slot'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    delete:
+      operationId: deleteAvailableSlot
+      tags:
+      - Scheduling
+      summary: Delete calendar slot
+      responses:
+        '204':
+          description: Slot deleted.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /available-slots/{id}/confirm:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: bookAvailableSlot
+      tags:
+      - Scheduling
+      summary: Book available slot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                applicant_id:
+                  type: string
+      responses:
+        '200':
+          description: Slot booked.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /booked-slots/{id}/cancel:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: cancelBookedSlot
+      tags:
+      - Scheduling
+      summary: Cancel booked slot
+      responses:
+        '200':
+          description: Booking cancelled.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    Slot:
+      type: object
+      properties:
+        id:
+          type: string
+        stage_id:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        capacity:
+          type: integer
+        booked_count:
+          type: integer
+        location:
+          type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid X-ACCESS-TOKEN.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    AccessToken:
+      type: apiKey
+      in: header
+      name: X-ACCESS-TOKEN
+      description: Your Fountain API token. Request API access by emailing support@fountain.com; find your token in your Fountain account settings.
