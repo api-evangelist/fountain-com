@@ -7,7 +7,20 @@ description: Fountain is a high-volume, frontline hourly hiring and workforce
   large numbers of hourly workers. The Fountain Developer API (Hire API v2) lets
   customers programmatically manage applicants, openings, positions, stages,
   labels, documents, scheduling slots, and webhooks across their hiring funnels.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fountain-com.png
 tags:
 - Hiring
 - Recruiting
@@ -20,187 +33,312 @@ created: '2026-07-01'
 modified: '2026-07-01'
 specificationVersion: '0.19'
 apis:
-- aid: fountain-com:fountain-applicants-api
+- aid: fountain-com:fountain-com-applicants-api
   name: Fountain Applicants API
-  tags:
-  - Applicants
-  - Candidates
-  - Applicant Tracking
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  description: Manage applicants moving through hiring funnels.
   humanURL: https://developer.fountain.com/reference/applicants
   baseURL: https://api.fountain.com/v2
-  properties:
-  - url: https://developer.fountain.com/reference/applicants
-    type: Documentation
-  - url: https://developer.fountain.com/reference/get_v2-applicants
-    type: APIReference
-  - url: openapi/fountain-com-openapi.yml
-    type: OpenAPI
-  - url: collections/fountain-com.postman_collection.json
-    type: PostmanCollection
-  - url: collections/fountain-com.opencollection.json
-    type: OpenCollection
-  description: Create, list, retrieve, update, delete, and advance applicants
-    through hiring funnels, plus notify applicants, pull transition history, and
-    look up duplicate applicants.
-- aid: fountain-com:fountain-openings-api
-  name: Fountain Openings API
   tags:
-  - Openings
-  - Funnels
-  - Jobs
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.fountain.com/reference/openings
-  baseURL: https://api.fountain.com/v2
+  - Applicants
   properties:
-  - url: https://developer.fountain.com/reference/openings
-    type: Documentation
-  - url: openapi/fountain-com-openapi.yml
-    type: OpenAPI
-  - url: collections/fountain-com.postman_collection.json
-    type: PostmanCollection
-  - url: collections/fountain-com.opencollection.json
-    type: OpenCollection
-  description: Manage openings (funnels) - the hiring workflows candidates move
-    through - including listing, creating, updating, deleting openings, and
-    listing the stages that belong to each opening.
-- aid: fountain-com:fountain-positions-api
-  name: Fountain Positions API
-  tags:
-  - Positions
-  - Roles
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.fountain.com/reference/positions
-  baseURL: https://api.fountain.com/v2
-  properties:
-  - url: https://developer.fountain.com/reference/positions
-    type: Documentation
-  - url: openapi/fountain-com-openapi.yml
-    type: OpenAPI
-  - url: collections/fountain-com.postman_collection.json
-    type: PostmanCollection
-  - url: collections/fountain-com.opencollection.json
-    type: OpenCollection
-  description: List, retrieve, create, update, and delete positions - the job
-    roles applicants are hired into - and assign company attributes to them.
-- aid: fountain-com:fountain-stages-api
-  name: Fountain Stages API
-  tags:
-  - Stages
-  - Workflow
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.fountain.com/reference/stages
-  baseURL: https://api.fountain.com/v2
-  properties:
-  - url: https://developer.fountain.com/reference/stages
-    type: Documentation
-  - url: openapi/fountain-com-openapi.yml
-    type: OpenAPI
-  - url: collections/fountain-com.postman_collection.json
-    type: PostmanCollection
-  - url: collections/fountain-com.opencollection.json
-    type: OpenCollection
-  description: Retrieve individual stages within an opening and list the
-    available scheduling slots attached to a stage as applicants progress.
-- aid: fountain-com:fountain-scheduling-api
-  name: Fountain Scheduling API
-  tags:
-  - Scheduling
-  - Interviews
-  - Slots
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.fountain.com/reference/available-slots
-  baseURL: https://api.fountain.com/v2
-  properties:
-  - url: https://developer.fountain.com/reference/available-slots
-    type: Documentation
-  - url: openapi/fountain-com-openapi.yml
-    type: OpenAPI
-  - url: collections/fountain-com.postman_collection.json
-    type: PostmanCollection
-  - url: collections/fountain-com.opencollection.json
-    type: OpenCollection
-  description: Create, list, update, and delete calendar / interview slots, and
-    book or cancel booked slots for applicant interview sessions.
-- aid: fountain-com:fountain-labels-api
-  name: Fountain Labels API
-  tags:
-  - Labels
-  - Tagging
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.fountain.com/reference/labels
-  baseURL: https://api.fountain.com/v2
-  properties:
-  - url: https://developer.fountain.com/reference/labels
-    type: Documentation
-  - url: openapi/fountain-com-openapi.yml
-    type: OpenAPI
-  - url: collections/fountain-com.postman_collection.json
-    type: PostmanCollection
-  - url: collections/fountain-com.opencollection.json
-    type: OpenCollection
-  description: List, assign, and remove labels on applicants and enumerate all
-    labels used within a given stage for automated screening and routing.
-- aid: fountain-com:fountain-documents-api
+  - type: OpenAPI
+    url: openapi/fountain-com-applicants-api-openapi.yml
+  - type: Documentation
+    url: https://developer.fountain.com/reference/applicants
+  - type: APIReference
+    url: https://developer.fountain.com/reference/get_v2-applicants
+  - type: PostmanCollection
+    url: collections/fountain-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/fountain-com.opencollection.json
+  - type: Documentation
+    url: https://developer.fountain.com/reference/openings
+  - type: Documentation
+    url: https://developer.fountain.com/reference/positions
+  - type: Documentation
+    url: https://developer.fountain.com/reference/stages
+  - type: Documentation
+    url: https://developer.fountain.com/reference/available-slots
+  - type: Documentation
+    url: https://developer.fountain.com/reference/labels
+  - type: Documentation
+    url: https://developer.fountain.com/reference/secure-documents
+  - type: Documentation
+    url: https://developer.fountain.com/reference/webhooks
+  - type: Documentation
+    url: https://developer.fountain.com/reference/workers
+- aid: fountain-com:fountain-com-documents-api
   name: Fountain Documents API
+  description: Manage secure applicant documents.
+  humanURL: https://developer.fountain.com/reference/applicants
+  baseURL: https://api.fountain.com/v2
   tags:
   - Documents
-  - Secure Documents
-  - Files
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.fountain.com/reference/secure-documents
-  baseURL: https://api.fountain.com/v2
   properties:
-  - url: https://developer.fountain.com/reference/secure-documents
-    type: Documentation
-  - url: openapi/fountain-com-openapi.yml
-    type: OpenAPI
-  - url: collections/fountain-com.postman_collection.json
-    type: PostmanCollection
-  - url: collections/fountain-com.opencollection.json
-    type: OpenCollection
-  description: Retrieve, upload, link, and approve secure applicant documents,
-    including direct-to-S3 upload flows and document approval for compliance.
-- aid: fountain-com:fountain-webhooks-api
+  - type: OpenAPI
+    url: openapi/fountain-com-documents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.fountain.com/reference/applicants
+  - type: APIReference
+    url: https://developer.fountain.com/reference/get_v2-applicants
+  - type: PostmanCollection
+    url: collections/fountain-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/fountain-com.opencollection.json
+  - type: Documentation
+    url: https://developer.fountain.com/reference/openings
+  - type: Documentation
+    url: https://developer.fountain.com/reference/positions
+  - type: Documentation
+    url: https://developer.fountain.com/reference/stages
+  - type: Documentation
+    url: https://developer.fountain.com/reference/available-slots
+  - type: Documentation
+    url: https://developer.fountain.com/reference/labels
+  - type: Documentation
+    url: https://developer.fountain.com/reference/secure-documents
+  - type: Documentation
+    url: https://developer.fountain.com/reference/webhooks
+  - type: Documentation
+    url: https://developer.fountain.com/reference/workers
+- aid: fountain-com:fountain-com-labels-api
+  name: Fountain Labels API
+  description: Assign and manage labels on applicants and stages.
+  humanURL: https://developer.fountain.com/reference/applicants
+  baseURL: https://api.fountain.com/v2
+  tags:
+  - Labels
+  properties:
+  - type: OpenAPI
+    url: openapi/fountain-com-labels-api-openapi.yml
+  - type: Documentation
+    url: https://developer.fountain.com/reference/applicants
+  - type: APIReference
+    url: https://developer.fountain.com/reference/get_v2-applicants
+  - type: PostmanCollection
+    url: collections/fountain-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/fountain-com.opencollection.json
+  - type: Documentation
+    url: https://developer.fountain.com/reference/openings
+  - type: Documentation
+    url: https://developer.fountain.com/reference/positions
+  - type: Documentation
+    url: https://developer.fountain.com/reference/stages
+  - type: Documentation
+    url: https://developer.fountain.com/reference/available-slots
+  - type: Documentation
+    url: https://developer.fountain.com/reference/labels
+  - type: Documentation
+    url: https://developer.fountain.com/reference/secure-documents
+  - type: Documentation
+    url: https://developer.fountain.com/reference/webhooks
+  - type: Documentation
+    url: https://developer.fountain.com/reference/workers
+- aid: fountain-com:fountain-com-openings-api
+  name: Fountain Openings API
+  description: Manage openings (funnels) - the hiring workflows.
+  humanURL: https://developer.fountain.com/reference/applicants
+  baseURL: https://api.fountain.com/v2
+  tags:
+  - Openings
+  properties:
+  - type: OpenAPI
+    url: openapi/fountain-com-openings-api-openapi.yml
+  - type: Documentation
+    url: https://developer.fountain.com/reference/applicants
+  - type: APIReference
+    url: https://developer.fountain.com/reference/get_v2-applicants
+  - type: PostmanCollection
+    url: collections/fountain-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/fountain-com.opencollection.json
+  - type: Documentation
+    url: https://developer.fountain.com/reference/openings
+  - type: Documentation
+    url: https://developer.fountain.com/reference/positions
+  - type: Documentation
+    url: https://developer.fountain.com/reference/stages
+  - type: Documentation
+    url: https://developer.fountain.com/reference/available-slots
+  - type: Documentation
+    url: https://developer.fountain.com/reference/labels
+  - type: Documentation
+    url: https://developer.fountain.com/reference/secure-documents
+  - type: Documentation
+    url: https://developer.fountain.com/reference/webhooks
+  - type: Documentation
+    url: https://developer.fountain.com/reference/workers
+- aid: fountain-com:fountain-com-positions-api
+  name: Fountain Positions API
+  description: Manage the job positions applicants are hired into.
+  humanURL: https://developer.fountain.com/reference/applicants
+  baseURL: https://api.fountain.com/v2
+  tags:
+  - Positions
+  properties:
+  - type: OpenAPI
+    url: openapi/fountain-com-positions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.fountain.com/reference/applicants
+  - type: APIReference
+    url: https://developer.fountain.com/reference/get_v2-applicants
+  - type: PostmanCollection
+    url: collections/fountain-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/fountain-com.opencollection.json
+  - type: Documentation
+    url: https://developer.fountain.com/reference/openings
+  - type: Documentation
+    url: https://developer.fountain.com/reference/positions
+  - type: Documentation
+    url: https://developer.fountain.com/reference/stages
+  - type: Documentation
+    url: https://developer.fountain.com/reference/available-slots
+  - type: Documentation
+    url: https://developer.fountain.com/reference/labels
+  - type: Documentation
+    url: https://developer.fountain.com/reference/secure-documents
+  - type: Documentation
+    url: https://developer.fountain.com/reference/webhooks
+  - type: Documentation
+    url: https://developer.fountain.com/reference/workers
+- aid: fountain-com:fountain-com-scheduling-api
+  name: Fountain Scheduling API
+  description: Manage interview / calendar slots and bookings.
+  humanURL: https://developer.fountain.com/reference/applicants
+  baseURL: https://api.fountain.com/v2
+  tags:
+  - Scheduling
+  properties:
+  - type: OpenAPI
+    url: openapi/fountain-com-scheduling-api-openapi.yml
+  - type: Documentation
+    url: https://developer.fountain.com/reference/applicants
+  - type: APIReference
+    url: https://developer.fountain.com/reference/get_v2-applicants
+  - type: PostmanCollection
+    url: collections/fountain-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/fountain-com.opencollection.json
+  - type: Documentation
+    url: https://developer.fountain.com/reference/openings
+  - type: Documentation
+    url: https://developer.fountain.com/reference/positions
+  - type: Documentation
+    url: https://developer.fountain.com/reference/stages
+  - type: Documentation
+    url: https://developer.fountain.com/reference/available-slots
+  - type: Documentation
+    url: https://developer.fountain.com/reference/labels
+  - type: Documentation
+    url: https://developer.fountain.com/reference/secure-documents
+  - type: Documentation
+    url: https://developer.fountain.com/reference/webhooks
+  - type: Documentation
+    url: https://developer.fountain.com/reference/workers
+- aid: fountain-com:fountain-com-stages-api
+  name: Fountain Stages API
+  description: Retrieve stages and their available scheduling slots.
+  humanURL: https://developer.fountain.com/reference/applicants
+  baseURL: https://api.fountain.com/v2
+  tags:
+  - Stages
+  properties:
+  - type: OpenAPI
+    url: openapi/fountain-com-stages-api-openapi.yml
+  - type: Documentation
+    url: https://developer.fountain.com/reference/applicants
+  - type: APIReference
+    url: https://developer.fountain.com/reference/get_v2-applicants
+  - type: PostmanCollection
+    url: collections/fountain-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/fountain-com.opencollection.json
+  - type: Documentation
+    url: https://developer.fountain.com/reference/openings
+  - type: Documentation
+    url: https://developer.fountain.com/reference/positions
+  - type: Documentation
+    url: https://developer.fountain.com/reference/stages
+  - type: Documentation
+    url: https://developer.fountain.com/reference/available-slots
+  - type: Documentation
+    url: https://developer.fountain.com/reference/labels
+  - type: Documentation
+    url: https://developer.fountain.com/reference/secure-documents
+  - type: Documentation
+    url: https://developer.fountain.com/reference/webhooks
+  - type: Documentation
+    url: https://developer.fountain.com/reference/workers
+- aid: fountain-com:fountain-com-webhooks-api
   name: Fountain Webhooks API
+  description: Manage webhook settings for hiring event notifications.
+  humanURL: https://developer.fountain.com/reference/applicants
+  baseURL: https://api.fountain.com/v2
   tags:
   - Webhooks
-  - Events
-  - Notifications
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.fountain.com/reference/webhooks
-  baseURL: https://api.fountain.com/v2
   properties:
-  - url: https://developer.fountain.com/reference/webhooks
-    type: Documentation
-  - url: openapi/fountain-com-openapi.yml
-    type: OpenAPI
-  - url: collections/fountain-com.postman_collection.json
-    type: PostmanCollection
-  - url: collections/fountain-com.opencollection.json
-    type: OpenCollection
-  description: List, create, retrieve, and delete webhook settings so external
-    systems receive real-time notifications of applicant and hiring events.
-- aid: fountain-com:fountain-workers-api
+  - type: OpenAPI
+    url: openapi/fountain-com-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://developer.fountain.com/reference/applicants
+  - type: APIReference
+    url: https://developer.fountain.com/reference/get_v2-applicants
+  - type: PostmanCollection
+    url: collections/fountain-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/fountain-com.opencollection.json
+  - type: Documentation
+    url: https://developer.fountain.com/reference/openings
+  - type: Documentation
+    url: https://developer.fountain.com/reference/positions
+  - type: Documentation
+    url: https://developer.fountain.com/reference/stages
+  - type: Documentation
+    url: https://developer.fountain.com/reference/available-slots
+  - type: Documentation
+    url: https://developer.fountain.com/reference/labels
+  - type: Documentation
+    url: https://developer.fountain.com/reference/secure-documents
+  - type: Documentation
+    url: https://developer.fountain.com/reference/webhooks
+  - type: Documentation
+    url: https://developer.fountain.com/reference/workers
+- aid: fountain-com:fountain-com-workers-api
   name: Fountain Workers API
+  description: Manage post-hire workers.
+  humanURL: https://developer.fountain.com/reference/applicants
+  baseURL: https://api.fountain.com/v2
   tags:
   - Workers
-  - Workforce Management
-  - Post-Hire
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.fountain.com/reference/workers
-  baseURL: https://api.fountain.com/v2
   properties:
-  - url: https://developer.fountain.com/reference/workers
-    type: Documentation
-  - url: openapi/fountain-com-openapi.yml
-    type: OpenAPI
-  - url: collections/fountain-com.postman_collection.json
-    type: PostmanCollection
-  - url: collections/fountain-com.opencollection.json
-    type: OpenCollection
-  description: List, retrieve, update, activate, and deactivate hired workers for
-    post-hire workforce management across the Fountain product suite.
+  - type: OpenAPI
+    url: openapi/fountain-com-workers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.fountain.com/reference/applicants
+  - type: APIReference
+    url: https://developer.fountain.com/reference/get_v2-applicants
+  - type: PostmanCollection
+    url: collections/fountain-com.postman_collection.json
+  - type: OpenCollection
+    url: collections/fountain-com.opencollection.json
+  - type: Documentation
+    url: https://developer.fountain.com/reference/openings
+  - type: Documentation
+    url: https://developer.fountain.com/reference/positions
+  - type: Documentation
+    url: https://developer.fountain.com/reference/stages
+  - type: Documentation
+    url: https://developer.fountain.com/reference/available-slots
+  - type: Documentation
+    url: https://developer.fountain.com/reference/labels
+  - type: Documentation
+    url: https://developer.fountain.com/reference/secure-documents
+  - type: Documentation
+    url: https://developer.fountain.com/reference/webhooks
+  - type: Documentation
+    url: https://developer.fountain.com/reference/workers
 common:
 - type: AgenticAccess
   url: agentic-access/fountain-com-agentic-access.yml
