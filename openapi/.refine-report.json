@@ -1,0 +1,30 @@
+{
+  "provider": "fountain-com",
+  "sources": [
+    "fountain-com-applicants-api-openapi.yml",
+    "fountain-com-documents-api-openapi.yml",
+    "fountain-com-labels-api-openapi.yml",
+    "fountain-com-openings-api-openapi.yml",
+    "fountain-com-positions-api-openapi.yml",
+    "fountain-com-scheduling-api-openapi.yml",
+    "fountain-com-stages-api-openapi.yml",
+    "fountain-com-webhooks-api-openapi.yml",
+    "fountain-com-workers-api-openapi.yml"
+  ],
+  "outputs": [
+    "fountain-com-applicants-api-openapi.yml",
+    "fountain-com-documents-api-openapi.yml",
+    "fountain-com-labels-api-openapi.yml",
+    "fountain-com-openings-api-openapi.yml",
+    "fountain-com-positions-api-openapi.yml",
+    "fountain-com-scheduling-api-openapi.yml",
+    "fountain-com-stages-api-openapi.yml",
+    "fountain-com-webhooks-api-openapi.yml",
+    "fountain-com-workers-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
