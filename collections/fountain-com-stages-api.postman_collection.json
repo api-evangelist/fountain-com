@@ -1,0 +1,342 @@
+{
+  "item": [
+    {
+      "id": "e661d1f9-8e07-460d-9542-cee1155d833c",
+      "name": "Stages",
+      "description": {
+        "content": "Retrieve stages and their available scheduling slots.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "77423c62-4676-4131-8bcc-1fed996c7e65",
+          "name": "Retrieve stage",
+          "request": {
+            "name": "Retrieve stage",
+            "description": {},
+            "url": {
+              "path": [
+                "stages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The stage ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3366a51b-2099-47a8-88cb-48d5632f7a47",
+              "name": "The stage.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The stage ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ACCESS-TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"type\": \"string\",\n  \"position\": 3967\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "428f98c1-159a-4315-affe-073cffd2abd1",
+              "name": "Missing or invalid X-ACCESS-TOKEN.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The stage ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ACCESS-TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20a8794a-f69e-4d7c-97a7-3381537ed5cf",
+          "name": "List available slots",
+          "request": {
+            "name": "List available slots",
+            "description": {},
+            "url": {
+              "path": [
+                "stages",
+                ":id",
+                "available-slots"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The stage ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8e7028b-0013-4102-babc-30c6e2bb8092",
+              "name": "Available scheduling slots for the stage.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stages",
+                    ":id",
+                    "available-slots"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The stage ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ACCESS-TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"available_slots\": [\n    {\n      \"id\": \"string\",\n      \"stage_id\": \"string\",\n      \"start_time\": \"2003-12-25T18:42:12.841Z\",\n      \"end_time\": \"1988-09-12T23:19:09.269Z\",\n      \"capacity\": 7321,\n      \"booked_count\": 331,\n      \"location\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"stage_id\": \"string\",\n      \"start_time\": \"2026-01-19T03:11:01.722Z\",\n      \"end_time\": \"1957-11-17T13:50:14.716Z\",\n      \"capacity\": 3908,\n      \"booked_count\": 4394,\n      \"location\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "137fba79-6706-4bea-9fd3-fe75fb97406b",
+              "name": "Missing or invalid X-ACCESS-TOKEN.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stages",
+                    ":id",
+                    "available-slots"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The stage ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-ACCESS-TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.fountain.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-ACCESS-TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7fb0eaa3-f584-46cc-8a81-2a197edcd788",
+    "name": "Fountain Developer API (Hire API v2) Applicants Stages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.\n\nContact Support:\n Name: Fountain Support\n Email: support@fountain.com",
+      "type": "text/plain"
+    }
+  }
+}

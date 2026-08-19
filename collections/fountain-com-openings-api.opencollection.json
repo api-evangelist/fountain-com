@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fountain Developer API (Hire API v2) Applicants Openings API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-ACCESS-TOKEN",
+      "value": "{{X-ACCESS-TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Openings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all openings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/funnels"
+          },
+          "docs": "Returns all openings (funnels) in the account."
+        },
+        {
+          "info": {
+            "name": "Create an opening",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/funnels",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an opening"
+        },
+        {
+          "info": {
+            "name": "Retrieve opening",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/funnels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The opening (funnel) ID."
+              }
+            ]
+          },
+          "docs": "Retrieve opening"
+        },
+        {
+          "info": {
+            "name": "Update opening",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.fountain.com/v2/funnels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The opening (funnel) ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update opening"
+        },
+        {
+          "info": {
+            "name": "Delete opening",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.fountain.com/v2/funnels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The opening (funnel) ID."
+              }
+            ]
+          },
+          "docs": "Delete opening"
+        },
+        {
+          "info": {
+            "name": "List opening stages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/funnels/:funnel_id/stages",
+            "params": [
+              {
+                "name": "funnel_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List opening stages"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

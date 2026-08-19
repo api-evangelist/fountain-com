@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fountain Developer API (Hire API v2) Applicants Positions API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-ACCESS-TOKEN",
+      "value": "{{X-ACCESS-TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Positions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/positions"
+          },
+          "docs": "List positions"
+        },
+        {
+          "info": {
+            "name": "Create a position",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/positions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a position"
+        },
+        {
+          "info": {
+            "name": "Retrieve position",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/positions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The position ID."
+              }
+            ]
+          },
+          "docs": "Retrieve position"
+        },
+        {
+          "info": {
+            "name": "Update position",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.fountain.com/v2/positions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The position ID."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update position"
+        },
+        {
+          "info": {
+            "name": "Delete position",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.fountain.com/v2/positions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The position ID."
+              }
+            ]
+          },
+          "docs": "Delete position"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

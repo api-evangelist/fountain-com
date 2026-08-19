@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fountain Developer API (Hire API v2) Applicants Webhooks API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-ACCESS-TOKEN",
+      "value": "{{X-ACCESS-TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List webhook settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/webhook-settings"
+          },
+          "docs": "List webhook settings"
+        },
+        {
+          "info": {
+            "name": "Create webhook setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/webhook-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create webhook setting"
+        },
+        {
+          "info": {
+            "name": "Retrieve webhook setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/webhook-settings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve webhook setting"
+        },
+        {
+          "info": {
+            "name": "Delete webhook setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.fountain.com/v2/webhook-settings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete webhook setting"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fountain Developer API (Hire API v2) Applicants Documents API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-ACCESS-TOKEN",
+      "value": "{{X-ACCESS-TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get applicant files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.fountain.com/v2/applicants/:id/secure-documents",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The applicant ID."
+              }
+            ]
+          },
+          "docs": "Get applicant files"
+        },
+        {
+          "info": {
+            "name": "Upload file to S3",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/applicants/:id/secure-documents-upload",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The applicant ID."
+              }
+            ]
+          },
+          "docs": "Requests a pre-signed URL to upload a secure document directly to S3."
+        },
+        {
+          "info": {
+            "name": "Link applicant to S3 files",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/applicants/:id/secure-documents-link-upload",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The applicant ID."
+              }
+            ]
+          },
+          "docs": "Link applicant to S3 files"
+        },
+        {
+          "info": {
+            "name": "Approve applicant documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fountain.com/v2/applicants/:id/secure-documents-approve",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The applicant ID."
+              }
+            ]
+          },
+          "docs": "Approve applicant documents"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
