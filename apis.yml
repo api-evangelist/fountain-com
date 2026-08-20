@@ -277,6 +277,8 @@ apis:
   humanURL: https://developer.fountain.com/reference/applicants
   baseURL: https://api.fountain.com/v2
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
