@@ -7,6 +7,18 @@ description: Fountain is a high-volume, frontline hourly hiring and workforce
   large numbers of hourly workers. The Fountain Developer API (Hire API v2) lets
   customers programmatically manage applicants, openings, positions, stages,
   labels, documents, scheduling slots, and webhooks across their hiring funnels.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
