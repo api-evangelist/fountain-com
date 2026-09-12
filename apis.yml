@@ -2,11 +2,7 @@ aid: fountain-com
 url: https://raw.githubusercontent.com/api-evangelist/fountain-com/refs/heads/main/apis.yml
 name: Fountain
 kind: company
-description: Fountain is a high-volume, frontline hourly hiring and workforce
-  management platform used by enterprises to source, screen, schedule, and hire
-  large numbers of hourly workers. The Fountain Developer API (Hire API v2) lets
-  customers programmatically manage applicants, openings, positions, stages,
-  labels, documents, scheduling slots, and webhooks across their hiring funnels.
+description: Fountain is a high-volume, frontline hourly hiring and workforce management platform used by enterprises to source, screen, schedule, and hire large numbers of hourly workers. The Fountain Developer API (Hire API v2) lets customers programmatically manage applicants, openings, positions, stages, labels, documents, scheduling slots, and webhooks across their hiring funnels.
 deliveryModel:
   model: saas
   open_source: false
@@ -354,6 +350,76 @@ apis:
     url: https://developer.fountain.com/reference/webhooks
   - type: Documentation
     url: https://developer.fountain.com/reference/workers
+- aid: fountain-com:hire-api
+  name: Fountain Hire API v2
+  description: REST API for the Fountain Hire product, covering applicants (create, retrieve, update, delete, list, latest applicant, duplicate detection, notes, labels, file uploads, transitions, bulk advance, bulk transitions, bulk notifications), funnels/openings (create, list, update, delete, stages, workflow reassignment, company-attribute assignment), calendar and interview scheduling (available slots, booked slots, session updates and cancellations), locations and location groups, positions, hiring goals, data keys, option banks, company attributes and attribute sets, custom exports, user management and activity logs, and webhook settings. Authentication is via the X-ACCESS-TOKEN request header using tenant API keys created under Developer Settings, or via OAuth 2.0 against the shared service hire base URL for partner integrations.
+  humanURL: https://developer.fountain.com/reference/hire-api-overview
+  baseURL: https://services.fountain.com/api/servicehire/v2
+  tags:
+  - Applicants
+  - Funnels
+  - Openings
+  - Stages
+  - Calendar
+  - Interview Scheduling
+  - Locations
+  - Hiring Goals
+  - Labels
+  - Custom Exports
+  - Webhook
+  - Custom Integrations
+  tags_raw:
+  - Applicants
+  - Funnels
+  - Openings
+  - Stages
+  - Calendar
+  - Interview Scheduling
+  - Locations
+  - Hiring Goals
+  - Labels
+  - Custom Exports
+  - Webhooks
+  - Custom Integrations
+  properties:
+  - type: Documentation
+    url: https://developer.fountain.com/docs
+  - type: APIReference
+    url: https://developer.fountain.com/reference/overview
+  - type: Authentication
+    url: https://developer.fountain.com/reference/wx-authentication
+  - type: RateLimits
+    url: https://developer.fountain.com/reference/rate-limits
+  - type: Webhooks
+    url: https://developer.fountain.com/reference/webhook-settings
+  - type: CustomIntegrations
+    url: https://developer.fountain.com/reference/custom-integrations
+  - type: LlmsText
+    url: https://developer.fountain.com/llms.txt
+- aid: fountain-com:worker-api
+  name: Fountain Worker API
+  description: Post-hire REST API covering worker profiles (activation and deactivation), employment records, document submissions, I-9 verification processing, attendance, shift creation and assignment, demands, allowances, breaks, holidays, audience and workforce management, and brand management. Shares the Fountain developer portal authentication model (X-ACCESS-TOKEN header or OAuth) and is intended to keep HRIS, payroll, scheduling, and engagement systems in sync with the active hourly workforce managed in Fountain.
+  humanURL: https://developer.fountain.com/reference/overview
+  baseURL: https://services.fountain.com/api/servicehire/v2
+  tags:
+  - Workers
+  - Employment Records
+  - Onboarding
+  - I-9 Verification
+  - Document Submissions
+  - Attendance
+  - Shifts
+  - Scheduling
+  - Demands
+  - Holidays
+  - HRIS Sync
+  properties:
+  - type: Documentation
+    url: https://developer.fountain.com/docs
+  - type: APIReference
+    url: https://developer.fountain.com/reference/overview
+  - type: Authentication
+    url: https://developer.fountain.com/reference/wx-authentication
 common:
 - type: AgenticAccess
   url: agentic-access/fountain-com-agentic-access.yml
