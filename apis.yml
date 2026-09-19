@@ -36,6 +36,14 @@ tags:
 - Applicant Tracking
 - Frontline Hiring
 - Hourly Workforce
+- Human Resources
+- Onboarding
+tags_raw:
+- Hiring
+- Recruiting
+- Applicant Tracking
+- Frontline Hiring
+- Hourly Workforce
 - HR Tech
 - Onboarding
 created: '2026-07-01'
@@ -362,7 +370,7 @@ apis:
   - Stages
   - Calendar
   - Interview Scheduling
-  - Locations
+  - Location
   - Hiring Goals
   - Labels
   - Custom Exports
