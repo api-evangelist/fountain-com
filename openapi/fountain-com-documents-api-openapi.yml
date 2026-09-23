@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Fountain Developer API (Hire API v2) Applicants Documents API
+  title: Fountain Developer API (Hire API v2) Documents API
   description: The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.
   termsOfService: https://www.fountain.com/legal/terms-of-use
   contact:
@@ -75,7 +75,29 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  parameters:
+    ApplicantId:
+      name: id
+      in: path
+      required: true
+      description: The applicant ID.
+      schema:
+        type: string
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    DocumentList:
+      type: object
+      properties:
+        secure_documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
     Document:
       type: object
       properties:
@@ -91,28 +113,6 @@ components:
         created_at:
           type: string
           format: date-time
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
-    DocumentList:
-      type: object
-      properties:
-        secure_documents:
-          type: array
-          items:
-            $ref: '#/components/schemas/Document'
-  parameters:
-    ApplicantId:
-      name: id
-      in: path
-      required: true
-      description: The applicant ID.
-      schema:
-        type: string
   responses:
     Unauthorized:
       description: Missing or invalid X-ACCESS-TOKEN.

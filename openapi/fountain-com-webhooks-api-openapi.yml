@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Fountain Developer API (Hire API v2) Applicants Webhooks API
+  title: Fountain Developer API (Hire API v2) Webhooks API
   description: The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.
   termsOfService: https://www.fountain.com/legal/terms-of-use
   contact:

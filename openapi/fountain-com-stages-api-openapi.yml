@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Fountain Developer API (Hire API v2) Applicants Stages API
+  title: Fountain Developer API (Hire API v2) Stages API
   description: The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.
   termsOfService: https://www.fountain.com/legal/terms-of-use
   contact:
@@ -52,22 +52,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  parameters:
-    StageId:
-      name: id
-      in: path
-      required: true
-      description: The stage ID.
-      schema:
-        type: string
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
     SlotList:
       type: object
       properties:
@@ -75,17 +60,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Slot'
-    Stage:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        type:
-          type: string
-        position:
-          type: integer
     Slot:
       type: object
       properties:
@@ -105,6 +79,24 @@ components:
           type: integer
         location:
           type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    Stage:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+        position:
+          type: integer
   responses:
     Unauthorized:
       description: Missing or invalid X-ACCESS-TOKEN.
@@ -112,6 +104,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  parameters:
+    StageId:
+      name: id
+      in: path
+      required: true
+      description: The stage ID.
+      schema:
+        type: string
   securitySchemes:
     AccessToken:
       type: apiKey

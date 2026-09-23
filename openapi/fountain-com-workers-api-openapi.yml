@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Fountain Developer API (Hire API v2) Applicants Workers API
+  title: Fountain Developer API (Hire API v2) Workers API
   description: The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.
   termsOfService: https://www.fountain.com/legal/terms-of-use
   contact:
@@ -109,21 +109,12 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Worker:
+    Error:
       type: object
       properties:
-        id:
+        error:
           type: string
-        name:
-          type: string
-        email:
-          type: string
-          format: email
-        status:
-          type: string
-        position_id:
-          type: string
-        location_id:
+        message:
           type: string
     WorkerList:
       type: object
@@ -143,12 +134,21 @@ components:
           type: integer
         total:
           type: integer
-    Error:
+    Worker:
       type: object
       properties:
-        error:
+        id:
           type: string
-        message:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        status:
+          type: string
+        position_id:
+          type: string
+        location_id:
           type: string
   responses:
     Unauthorized:

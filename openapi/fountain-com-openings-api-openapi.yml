@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Fountain Developer API (Hire API v2) Applicants Openings API
+  title: Fountain Developer API (Hire API v2) Openings API
   description: The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.
   termsOfService: https://www.fountain.com/legal/terms-of-use
   contact:
@@ -123,15 +123,13 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Pagination:
+    Error:
       type: object
       properties:
-        next_cursor:
+        error:
           type: string
-        per_page:
-          type: integer
-        total:
-          type: integer
+        message:
+          type: string
     OpeningList:
       type: object
       properties:
@@ -141,20 +139,15 @@ components:
             $ref: '#/components/schemas/Opening'
         pagination:
           $ref: '#/components/schemas/Pagination'
-    StageList:
+    Pagination:
       type: object
       properties:
-        stages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Stage'
-    Error:
-      type: object
-      properties:
-        error:
+        next_cursor:
           type: string
-        message:
-          type: string
+        per_page:
+          type: integer
+        total:
+          type: integer
     Stage:
       type: object
       properties:
@@ -166,6 +159,13 @@ components:
           type: string
         position:
           type: integer
+    StageList:
+      type: object
+      properties:
+        stages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stage'
     Opening:
       type: object
       properties:

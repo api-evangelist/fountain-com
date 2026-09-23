@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Fountain Developer API (Hire API v2) Applicants API
   description: The Fountain Developer API lets customers of the Fountain high-volume hiring platform programmatically manage their hiring data - applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers. All requests are authenticated with an API token passed in the X-ACCESS-TOKEN request header.
@@ -257,55 +257,6 @@ components:
       schema:
         type: string
   schemas:
-    ApplicantCreate:
-      type: object
-      required:
-      - name
-      - funnel_id
-      properties:
-        name:
-          type: string
-        email:
-          type: string
-          format: email
-        phone_number:
-          type: string
-        funnel_id:
-          type: string
-        data:
-          type: object
-          additionalProperties: true
-    ApplicantList:
-      type: object
-      properties:
-        applicants:
-          type: array
-          items:
-            $ref: '#/components/schemas/Applicant'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    Pagination:
-      type: object
-      properties:
-        next_cursor:
-          type: string
-        per_page:
-          type: integer
-        total:
-          type: integer
-    ApplicantUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-        email:
-          type: string
-          format: email
-        phone_number:
-          type: string
-        data:
-          type: object
-          additionalProperties: true
     Error:
       type: object
       properties:
@@ -340,6 +291,55 @@ components:
         updated_at:
           type: string
           format: date-time
+    Pagination:
+      type: object
+      properties:
+        next_cursor:
+          type: string
+        per_page:
+          type: integer
+        total:
+          type: integer
+    ApplicantList:
+      type: object
+      properties:
+        applicants:
+          type: array
+          items:
+            $ref: '#/components/schemas/Applicant'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    ApplicantUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone_number:
+          type: string
+        data:
+          type: object
+          additionalProperties: true
+    ApplicantCreate:
+      type: object
+      required:
+      - name
+      - funnel_id
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone_number:
+          type: string
+        funnel_id:
+          type: string
+        data:
+          type: object
+          additionalProperties: true
   responses:
     Unauthorized:
       description: Missing or invalid X-ACCESS-TOKEN.

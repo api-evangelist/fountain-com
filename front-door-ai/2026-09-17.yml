@@ -1,0 +1,32 @@
+# Front Door AI Index — fountain-com — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: fountain-com
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.fountain.com
+  final_host: www.fountain.com
+  ownership: shared
+  owner: fountain
+  shares_host_with:
+  - fountain
+  inherited_from: null
+  verdict: scored
+  score: null
+  host_score: 23
+  density: null
+  words: 1179
+  tiers:
+    agentic: 8
+    core: 14
+    model: 1
+  ambiguous: 9
+  top_terms:
+    AI: 14
+    agent: 8
+    agentic: 5
+    AI agent: 2
+    Anthropic: 1
+    automation: 1
+    prompts: 1
