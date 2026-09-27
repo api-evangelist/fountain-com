@@ -109,13 +109,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
     WorkerList:
       type: object
       properties:
@@ -125,6 +118,13 @@ components:
             $ref: '#/components/schemas/Worker'
         pagination:
           $ref: '#/components/schemas/Pagination'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
     Pagination:
       type: object
       properties:

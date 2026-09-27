@@ -53,13 +53,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    SlotList:
-      type: object
-      properties:
-        available_slots:
-          type: array
-          items:
-            $ref: '#/components/schemas/Slot'
     Slot:
       type: object
       properties:
@@ -97,6 +90,13 @@ components:
           type: string
         position:
           type: integer
+    SlotList:
+      type: object
+      properties:
+        available_slots:
+          type: array
+          items:
+            $ref: '#/components/schemas/Slot'
   responses:
     Unauthorized:
       description: Missing or invalid X-ACCESS-TOKEN.
