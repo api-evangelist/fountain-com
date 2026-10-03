@@ -85,13 +85,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
     WebhookSetting:
       type: object
       properties:
@@ -113,6 +106,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WebhookSetting'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
   responses:
     Unauthorized:
       description: Missing or invalid X-ACCESS-TOKEN.

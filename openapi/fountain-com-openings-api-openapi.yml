@@ -123,13 +123,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
     StageList:
       type: object
       properties:
@@ -137,6 +130,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Stage'
+    OpeningList:
+      type: object
+      properties:
+        funnels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Opening'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     Stage:
       type: object
       properties:
@@ -148,15 +150,22 @@ components:
           type: string
         position:
           type: integer
-    OpeningList:
+    Error:
       type: object
       properties:
-        funnels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Opening'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
+        error:
+          type: string
+        message:
+          type: string
+    Pagination:
+      type: object
+      properties:
+        next_cursor:
+          type: string
+        per_page:
+          type: integer
+        total:
+          type: integer
     Opening:
       type: object
       properties:
@@ -173,15 +182,13 @@ components:
         created_at:
           type: string
           format: date-time
-    Pagination:
-      type: object
-      properties:
-        next_cursor:
-          type: string
-        per_page:
-          type: integer
-        total:
-          type: integer
+  responses:
+    Unauthorized:
+      description: Missing or invalid X-ACCESS-TOKEN.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
     FunnelId:
       name: id
@@ -190,13 +197,6 @@ components:
       description: The opening (funnel) ID.
       schema:
         type: string
-  responses:
-    Unauthorized:
-      description: Missing or invalid X-ACCESS-TOKEN.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     AccessToken:
       type: apiKey

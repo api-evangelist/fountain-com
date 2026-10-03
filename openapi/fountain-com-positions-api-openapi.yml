@@ -100,15 +100,25 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  parameters:
-    PositionId:
-      name: id
-      in: path
-      required: true
-      description: The position ID.
-      schema:
-        type: string
   schemas:
+    Position:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        external_id:
+          type: string
+    PositionList:
+      type: object
+      properties:
+        positions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Position'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     Error:
       type: object
       properties:
@@ -125,24 +135,14 @@ components:
           type: integer
         total:
           type: integer
-    PositionList:
-      type: object
-      properties:
-        positions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Position'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    Position:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        external_id:
-          type: string
+  parameters:
+    PositionId:
+      name: id
+      in: path
+      required: true
+      description: The position ID.
+      schema:
+        type: string
   responses:
     Unauthorized:
       description: Missing or invalid X-ACCESS-TOKEN.
