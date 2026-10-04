@@ -76,6 +76,35 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  schemas:
+    LabelList:
+      type: object
+      properties:
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    Label:
+      type: object
+      properties:
+        title:
+          type: string
+        color:
+          type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid X-ACCESS-TOKEN.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
     ApplicantId:
       name: id
@@ -84,35 +113,6 @@ components:
       description: The applicant ID.
       schema:
         type: string
-  schemas:
-    Label:
-      type: object
-      properties:
-        title:
-          type: string
-        color:
-          type: string
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
-    LabelList:
-      type: object
-      properties:
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Label'
-  responses:
-    Unauthorized:
-      description: Missing or invalid X-ACCESS-TOKEN.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     AccessToken:
       type: apiKey

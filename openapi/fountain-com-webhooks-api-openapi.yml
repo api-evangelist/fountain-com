@@ -99,13 +99,6 @@ components:
           type: string
         stage_id:
           type: string
-    WebhookSettingList:
-      type: object
-      properties:
-        webhook_settings:
-          type: array
-          items:
-            $ref: '#/components/schemas/WebhookSetting'
     Error:
       type: object
       properties:
@@ -113,6 +106,13 @@ components:
           type: string
         message:
           type: string
+    WebhookSettingList:
+      type: object
+      properties:
+        webhook_settings:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookSetting'
   responses:
     Unauthorized:
       description: Missing or invalid X-ACCESS-TOKEN.

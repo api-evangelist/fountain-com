@@ -123,22 +123,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    StageList:
-      type: object
-      properties:
-        stages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Stage'
-    OpeningList:
-      type: object
-      properties:
-        funnels:
-          type: array
-          items:
-            $ref: '#/components/schemas/Opening'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
     Stage:
       type: object
       properties:
@@ -150,22 +134,22 @@ components:
           type: string
         position:
           type: integer
-    Error:
+    OpeningList:
       type: object
       properties:
-        error:
-          type: string
-        message:
-          type: string
-    Pagination:
+        funnels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Opening'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    StageList:
       type: object
       properties:
-        next_cursor:
-          type: string
-        per_page:
-          type: integer
-        total:
-          type: integer
+        stages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stage'
     Opening:
       type: object
       properties:
@@ -182,13 +166,22 @@ components:
         created_at:
           type: string
           format: date-time
-  responses:
-    Unauthorized:
-      description: Missing or invalid X-ACCESS-TOKEN.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    Pagination:
+      type: object
+      properties:
+        next_cursor:
+          type: string
+        per_page:
+          type: integer
+        total:
+          type: integer
   parameters:
     FunnelId:
       name: id
@@ -197,6 +190,13 @@ components:
       description: The opening (funnel) ID.
       schema:
         type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid X-ACCESS-TOKEN.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     AccessToken:
       type: apiKey

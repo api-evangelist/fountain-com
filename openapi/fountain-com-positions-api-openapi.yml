@@ -100,16 +100,22 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  parameters:
+    PositionId:
+      name: id
+      in: path
+      required: true
+      description: The position ID.
+      schema:
+        type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid X-ACCESS-TOKEN.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Position:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        external_id:
-          type: string
     PositionList:
       type: object
       properties:
@@ -119,6 +125,15 @@ components:
             $ref: '#/components/schemas/Position'
         pagination:
           $ref: '#/components/schemas/Pagination'
+    Position:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        external_id:
+          type: string
     Error:
       type: object
       properties:
@@ -135,21 +150,6 @@ components:
           type: integer
         total:
           type: integer
-  parameters:
-    PositionId:
-      name: id
-      in: path
-      required: true
-      description: The position ID.
-      schema:
-        type: string
-  responses:
-    Unauthorized:
-      description: Missing or invalid X-ACCESS-TOKEN.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     AccessToken:
       type: apiKey

@@ -75,14 +75,13 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  parameters:
-    ApplicantId:
-      name: id
-      in: path
-      required: true
-      description: The applicant ID.
-      schema:
-        type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid X-ACCESS-TOKEN.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
     Document:
       type: object
@@ -113,13 +112,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Document'
-  responses:
-    Unauthorized:
-      description: Missing or invalid X-ACCESS-TOKEN.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+  parameters:
+    ApplicantId:
+      name: id
+      in: path
+      required: true
+      description: The applicant ID.
+      schema:
+        type: string
   securitySchemes:
     AccessToken:
       type: apiKey

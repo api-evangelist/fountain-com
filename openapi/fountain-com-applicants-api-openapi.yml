@@ -248,22 +248,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  parameters:
-    ApplicantId:
-      name: id
-      in: path
-      required: true
-      description: The applicant ID.
-      schema:
-        type: string
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
     Applicant:
       type: object
       properties:
@@ -291,6 +276,15 @@ components:
         updated_at:
           type: string
           format: date-time
+    ApplicantList:
+      type: object
+      properties:
+        applicants:
+          type: array
+          items:
+            $ref: '#/components/schemas/Applicant'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     ApplicantCreate:
       type: object
       required:
@@ -309,24 +303,13 @@ components:
         data:
           type: object
           additionalProperties: true
-    ApplicantList:
+    Error:
       type: object
       properties:
-        applicants:
-          type: array
-          items:
-            $ref: '#/components/schemas/Applicant'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    Pagination:
-      type: object
-      properties:
-        next_cursor:
+        error:
           type: string
-        per_page:
-          type: integer
-        total:
-          type: integer
+        message:
+          type: string
     ApplicantUpdate:
       type: object
       properties:
@@ -340,6 +323,15 @@ components:
         data:
           type: object
           additionalProperties: true
+    Pagination:
+      type: object
+      properties:
+        next_cursor:
+          type: string
+        per_page:
+          type: integer
+        total:
+          type: integer
   responses:
     Unauthorized:
       description: Missing or invalid X-ACCESS-TOKEN.
@@ -347,6 +339,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  parameters:
+    ApplicantId:
+      name: id
+      in: path
+      required: true
+      description: The applicant ID.
+      schema:
+        type: string
   securitySchemes:
     AccessToken:
       type: apiKey

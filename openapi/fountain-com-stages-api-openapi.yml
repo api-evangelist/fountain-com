@@ -71,13 +71,6 @@ components:
           type: string
         position:
           type: integer
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
     Slot:
       type: object
       properties:
@@ -96,6 +89,13 @@ components:
         booked_count:
           type: integer
         location:
+          type: string
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
           type: string
   parameters:
     StageId:
