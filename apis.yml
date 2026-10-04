@@ -30,6 +30,9 @@ accessModel:
   generated: '2026-09-03'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fountain-com.png
+x-docs-platform: readme
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-10-03
 tags:
 - Hiring
 - Recruiting
@@ -429,6 +432,9 @@ apis:
   - type: Authentication
     url: https://developer.fountain.com/reference/wx-authentication
 common:
+- type: CapabilityMap
+  url: capabilities/fountain-com-capability-edges.yml
+  name: Fountain Business Capability Map
 - type: AgenticAccess
   url: agentic-access/fountain-com-agentic-access.yml
 - type: VulnerabilityDisclosure
