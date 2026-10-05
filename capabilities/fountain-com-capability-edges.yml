@@ -1,0 +1,86 @@
+slug: fountain-com
+provider: Fountain
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: Applicants
+  spec_file: fountain-com-applicants-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.94
+  evidence: POST /applicants createApplicant 'Create an applicant'; PUT /applicants/{id}/advance 'Advance
+    an applicant'; 'high-volume hiring platform'
+  reason: Operations manage applicant records and advance them through hiring funnel stages — core recruiting/applicant
+    tracking, i.e. Talent Acquisition Management.
+- tag: Openings
+  spec_file: fountain-com-openings-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.9
+  evidence: POST /funnels createOpening 'Create an opening'; GET /funnels/{funnel_id}/stages 'List opening
+    stages'
+  reason: Openings (funnels) are job requisitions with hiring stages — requisition and recruiting pipeline
+    management under Talent Acquisition.
+- tag: Scheduling
+  spec_file: fountain-com-scheduling-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.8
+  evidence: POST /available-slots createAvailableSlots 'Create calendar slots'; 'interview scheduling
+    slots'
+  reason: Calendar slot creation, booking and cancellation are described by the vendor as interview scheduling
+    slots within the hiring funnel — part of recruiting/hiring execution.
+- tag: Stages
+  spec_file: fountain-com-stages-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.78
+  evidence: GET /stages/{id} getStage 'Retrieve stage'; GET /stages/{id}/available-slots 'List available
+    slots'
+  reason: Stages are the steps of the hiring funnel through which applicants progress, with interview
+    slot availability — recruiting pipeline configuration.
+- tag: Documents
+  spec_file: fountain-com-documents-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.74
+  evidence: GET /applicants/{id}/secure-documents getApplicantFiles 'Get applicant files'; POST /applicants/{id}/secure-documents-approve
+    'Approve applicant documents'
+  reason: Although the operations are file upload/link mechanics, they are scoped to applicant secure
+    documents and their approval within the hiring funnel, which is part of recruiting/hiring document
+    collection.
+- tag: Workers
+  spec_file: fountain-com-workers-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.73
+  evidence: 'POST /workers/{id}/activate ''Activate worker''; POST /workers/{id}/deactivate ''Deactivate
+    worker''; vendor: ''post-hire workers'''
+  reason: Worker records are explicitly post-hire; listing, updating, activating and deactivating worker
+    records is employee-record administration (HR Operations) rather than recruiting.
+- tag: Positions
+  spec_file: fountain-com-positions-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.72
+  evidence: 'POST /positions createPosition ''Create a position''; vendor: ''programmatically manage applicants,
+    openings, positions, stages'''
+  reason: Positions are the job positions hired against in this hourly-hiring platform; most plausibly
+    recruiting/requisition structure rather than broader workforce planning, but evidence is thin on intent.
