@@ -53,24 +53,13 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    SlotList:
+    Error:
       type: object
       properties:
-        available_slots:
-          type: array
-          items:
-            $ref: '#/components/schemas/Slot'
-    Stage:
-      type: object
-      properties:
-        id:
+        error:
           type: string
-        title:
+        message:
           type: string
-        type:
-          type: string
-        position:
-          type: integer
     Slot:
       type: object
       properties:
@@ -90,13 +79,24 @@ components:
           type: integer
         location:
           type: string
-    Error:
+    SlotList:
       type: object
       properties:
-        error:
+        available_slots:
+          type: array
+          items:
+            $ref: '#/components/schemas/Slot'
+    Stage:
+      type: object
+      properties:
+        id:
           type: string
-        message:
+        title:
           type: string
+        type:
+          type: string
+        position:
+          type: integer
   parameters:
     StageId:
       name: id

@@ -85,6 +85,13 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
     WebhookSetting:
       type: object
       properties:
@@ -98,13 +105,6 @@ components:
         funnel_id:
           type: string
         stage_id:
-          type: string
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
           type: string
     WebhookSettingList:
       type: object

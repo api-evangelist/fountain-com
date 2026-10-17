@@ -100,6 +100,41 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  schemas:
+    PositionList:
+      type: object
+      properties:
+        positions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Position'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    Position:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        external_id:
+          type: string
+    Pagination:
+      type: object
+      properties:
+        next_cursor:
+          type: string
+        per_page:
+          type: integer
+        total:
+          type: integer
   parameters:
     PositionId:
       name: id
@@ -115,41 +150,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  schemas:
-    PositionList:
-      type: object
-      properties:
-        positions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Position'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    Position:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        external_id:
-          type: string
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
-    Pagination:
-      type: object
-      properties:
-        next_cursor:
-          type: string
-        per_page:
-          type: integer
-        total:
-          type: integer
   securitySchemes:
     AccessToken:
       type: apiKey

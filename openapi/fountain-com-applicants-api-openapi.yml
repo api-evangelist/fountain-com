@@ -249,6 +249,62 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+    ApplicantList:
+      type: object
+      properties:
+        applicants:
+          type: array
+          items:
+            $ref: '#/components/schemas/Applicant'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+    ApplicantUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone_number:
+          type: string
+        data:
+          type: object
+          additionalProperties: true
+    ApplicantCreate:
+      type: object
+      required:
+      - name
+      - funnel_id
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone_number:
+          type: string
+        funnel_id:
+          type: string
+        data:
+          type: object
+          additionalProperties: true
+    Pagination:
+      type: object
+      properties:
+        next_cursor:
+          type: string
+        per_page:
+          type: integer
+        total:
+          type: integer
     Applicant:
       type: object
       properties:
@@ -276,69 +332,6 @@ components:
         updated_at:
           type: string
           format: date-time
-    ApplicantList:
-      type: object
-      properties:
-        applicants:
-          type: array
-          items:
-            $ref: '#/components/schemas/Applicant'
-        pagination:
-          $ref: '#/components/schemas/Pagination'
-    ApplicantCreate:
-      type: object
-      required:
-      - name
-      - funnel_id
-      properties:
-        name:
-          type: string
-        email:
-          type: string
-          format: email
-        phone_number:
-          type: string
-        funnel_id:
-          type: string
-        data:
-          type: object
-          additionalProperties: true
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-        message:
-          type: string
-    ApplicantUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-        email:
-          type: string
-          format: email
-        phone_number:
-          type: string
-        data:
-          type: object
-          additionalProperties: true
-    Pagination:
-      type: object
-      properties:
-        next_cursor:
-          type: string
-        per_page:
-          type: integer
-        total:
-          type: integer
-  responses:
-    Unauthorized:
-      description: Missing or invalid X-ACCESS-TOKEN.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   parameters:
     ApplicantId:
       name: id
@@ -347,6 +340,13 @@ components:
       description: The applicant ID.
       schema:
         type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid X-ACCESS-TOKEN.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     AccessToken:
       type: apiKey
