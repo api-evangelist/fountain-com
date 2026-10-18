@@ -65,5 +65,5 @@
     - connectors/applications/fountain
     vendor_link: https://www.fountain.com/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
