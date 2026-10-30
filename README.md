@@ -1,4 +1,4 @@
-# Fountain (fountain-com)
+# Fountain
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,215 +64,144 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Fountain is a high-volume, frontline hourly hiring and workforce management platform used by enterprises to source, screen, schedule, and hire large numbers of hourly workers. The Fountain Developer API (Hire API v2) lets customers programmatically manage applicants, openings (funnels), positions, stages, labels, secure documents, interview scheduling slots, webhooks, and post-hire workers across their hiring funnels. All requests use the `https://api.fountain.com/v2` base URL and authenticate with an API token passed in the `X-ACCESS-TOKEN` request header.
+Fountain is a high-volume, frontline hourly hiring and workforce management platform used by enterprises to source, screen, schedule, and hire large numbers of hourly workers. The Fountain Developer API (Hire API v2) lets customers programmatically manage applicants, openings, positions, stages, labels, documents, scheduling slots, and webhooks across their hiring funnels.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/fountain-com/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/fountain-com/refs/heads/main/apis.yml)
+**Areas:** Hiring · Recruiting · Applicant Tracking · Frontline Hiring · Hourly Workforce · Human Resources · Onboarding
 
-## Tags
+## Fountain on APIs.io
 
-- Hiring
-- Recruiting
-- Applicant Tracking
-- Frontline Hiring
-- Hourly Workforce
-- HR Tech
-- Onboarding
+Everything profiled for Fountain is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/fountain-com/](https://apis.io/providers/fountain-com/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (11)
 
-- **Created:** 2026-07-01
-- **Modified:** 2026-07-01
+- [Fountain Applicants API](https://apis.io/apis/fountain-com/fountain-com-applicants-api/) — Manage applicants moving through hiring funnels.
+- [Fountain Documents API](https://apis.io/apis/fountain-com/fountain-com-documents-api/) — Manage secure applicant documents.
+- [Fountain Labels API](https://apis.io/apis/fountain-com/fountain-com-labels-api/) — Assign and manage labels on applicants and stages.
+- [Fountain Openings API](https://apis.io/apis/fountain-com/fountain-com-openings-api/) — Manage openings (funnels) - the hiring workflows.
+- [Fountain Positions API](https://apis.io/apis/fountain-com/fountain-com-positions-api/) — Manage the job positions applicants are hired into.
+- [Fountain Scheduling API](https://apis.io/apis/fountain-com/fountain-com-scheduling-api/) — Manage interview / calendar slots and bookings.
+- [Fountain Stages API](https://apis.io/apis/fountain-com/fountain-com-stages-api/) — Retrieve stages and their available scheduling slots.
+- [Fountain Webhooks API](https://apis.io/apis/fountain-com/fountain-com-webhooks-api/) — Manage webhook settings for hiring event notifications.
+- [Fountain Workers API](https://apis.io/apis/fountain-com/fountain-com-workers-api/) — Manage post-hire workers.
+- [Fountain Hire API v2](https://apis.io/apis/fountain-com/hire-api/) — REST API for the Fountain Hire product, covering applicants (create, retrieve, update, delete, list, latest applicant, duplicate detection, notes, labels,…
+- [Fountain Worker API](https://apis.io/apis/fountain-com/worker-api/) — Post-hire REST API covering worker profiles (activation and deactivation), employment records, document submissions, I-9 verification processing,…
 
-## APIs
+### Published properties
 
-### Fountain Applicants API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Create, list, retrieve, update, delete, and advance applicants through hiring funnels, plus notify applicants, pull transition history, and look up duplicate applicants.
+#### MCP servers (1)
 
-- **Human URL:** [https://developer.fountain.com/reference/applicants](https://developer.fountain.com/reference/applicants)
-- **Base URL:** `https://api.fountain.com/v2`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [fountain-com](https://apis.io/servers/fountain-com/fountain-com/)
 
-- Applicants
-- Candidates
-- Applicant Tracking
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://developer.fountain.com/reference/applicants)
-- [API Reference](https://developer.fountain.com/reference/get_v2-applicants)
-- [OpenAPI](openapi/fountain-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fountain-com.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fountain-com.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Fountain Com Agentic Access](https://apis.io/agentic-access/fountain-com/fountain-com-agentic-access/)
 
-### Fountain Openings API
+#### Collections (10)
 
-Manage openings (funnels) - the hiring workflows candidates move through - including listing, creating, updating, deleting openings, and listing the stages that belong to each opening.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://developer.fountain.com/reference/openings](https://developer.fountain.com/reference/openings)
-- **Base URL:** `https://api.fountain.com/v2`
+- [Fountain Developer API (Hire API v2)](https://apis.io/collections/fountain-com/open-fountain-com/)
+- [Fountain Developer API (Hire API v2) Applicants API](https://apis.io/collections/fountain-com/open-fountain-com-applicants-api/)
+- [Fountain Developer API (Hire API v2) Applicants Documents API](https://apis.io/collections/fountain-com/open-fountain-com-documents-api/)
+- [Fountain Developer API (Hire API v2) Applicants Labels API](https://apis.io/collections/fountain-com/open-fountain-com-labels-api/)
+- [Fountain Developer API (Hire API v2) Applicants Openings API](https://apis.io/collections/fountain-com/open-fountain-com-openings-api/)
+- [Fountain Developer API (Hire API v2) Applicants Positions API](https://apis.io/collections/fountain-com/open-fountain-com-positions-api/)
+- [Fountain Developer API (Hire API v2) Applicants Scheduling API](https://apis.io/collections/fountain-com/open-fountain-com-scheduling-api/)
+- [Fountain Developer API (Hire API v2) Applicants Stages API](https://apis.io/collections/fountain-com/open-fountain-com-stages-api/)
+- [Fountain Developer API (Hire API v2) Applicants Webhooks API](https://apis.io/collections/fountain-com/open-fountain-com-webhooks-api/)
+- [Fountain Developer API (Hire API v2) Applicants Workers API](https://apis.io/collections/fountain-com/open-fountain-com-workers-api/)
 
-#### Tags
+#### Security (3)
 
-- Openings
-- Funnels
-- Jobs
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Fountain Com Authentication](https://apis.io/security/fountain-com/fountain-com-authentication/)
+- [Fountain Com Domain Security](https://apis.io/security/fountain-com/fountain-com-domain-security/)
+- [Fountain Com Vulnerability Disclosure](https://apis.io/security/fountain-com/fountain-com-vulnerability-disclosure/)
 
-- [Documentation](https://developer.fountain.com/reference/openings)
-- [OpenAPI](openapi/fountain-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fountain-com.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fountain-com.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (1)
 
-### Fountain Positions API
+Published plans, tiers and prices.
 
-List, retrieve, create, update, and delete positions - the job roles applicants are hired into - and assign company attributes to them.
+- [Fountain Com Plans Pricing](https://apis.io/plans/fountain-com/fountain-com-plans-pricing/)
 
-- **Human URL:** [https://developer.fountain.com/reference/positions](https://developer.fountain.com/reference/positions)
-- **Base URL:** `https://api.fountain.com/v2`
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- Positions
-- Roles
+- [Fountain Com Rate Limits](https://apis.io/rate-limits/fountain-com/fountain-com-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [Documentation](https://developer.fountain.com/reference/positions)
-- [OpenAPI](openapi/fountain-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fountain-com.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fountain-com.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+What the API costs to run, by operation.
 
-### Fountain Stages API
+- [Fountain Com Finops](https://apis.io/finops/fountain-com/fountain-com-finops/)
 
-Retrieve individual stages within an opening and list the available scheduling slots attached to a stage as applicants progress.
+## Where to find this API
 
-- **Human URL:** [https://developer.fountain.com/reference/stages](https://developer.fountain.com/reference/stages)
-- **Base URL:** `https://api.fountain.com/v2`
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Tags
-
-- Stages
-- Workflow
-
-#### Properties
-
-- [Documentation](https://developer.fountain.com/reference/stages)
-- [OpenAPI](openapi/fountain-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fountain-com.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fountain-com.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Fountain Scheduling API
-
-Create, list, update, and delete calendar / interview slots, and book or cancel booked slots for applicant interview sessions.
-
-- **Human URL:** [https://developer.fountain.com/reference/available-slots](https://developer.fountain.com/reference/available-slots)
-- **Base URL:** `https://api.fountain.com/v2`
-
-#### Tags
-
-- Scheduling
-- Interviews
-- Slots
-
-#### Properties
-
-- [Documentation](https://developer.fountain.com/reference/available-slots)
-- [OpenAPI](openapi/fountain-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fountain-com.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fountain-com.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Fountain Labels API
-
-List, assign, and remove labels on applicants and enumerate all labels used within a given stage for automated screening and routing.
-
-- **Human URL:** [https://developer.fountain.com/reference/labels](https://developer.fountain.com/reference/labels)
-- **Base URL:** `https://api.fountain.com/v2`
-
-#### Tags
-
-- Labels
-- Tagging
-
-#### Properties
-
-- [Documentation](https://developer.fountain.com/reference/labels)
-- [OpenAPI](openapi/fountain-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fountain-com.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fountain-com.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Fountain Documents API
-
-Retrieve, upload, link, and approve secure applicant documents, including direct-to-S3 upload flows and document approval for compliance.
-
-- **Human URL:** [https://developer.fountain.com/reference/secure-documents](https://developer.fountain.com/reference/secure-documents)
-- **Base URL:** `https://api.fountain.com/v2`
-
-#### Tags
-
-- Documents
-- Secure Documents
-- Files
-
-#### Properties
-
-- [Documentation](https://developer.fountain.com/reference/secure-documents)
-- [OpenAPI](openapi/fountain-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fountain-com.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fountain-com.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Fountain Webhooks API
-
-List, create, retrieve, and delete webhook settings so external systems receive real-time notifications of applicant and hiring events.
-
-- **Human URL:** [https://developer.fountain.com/reference/webhooks](https://developer.fountain.com/reference/webhooks)
-- **Base URL:** `https://api.fountain.com/v2`
-
-#### Tags
-
-- Webhooks
-- Events
-- Notifications
-
-#### Properties
-
-- [Documentation](https://developer.fountain.com/reference/webhooks)
-- [OpenAPI](openapi/fountain-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fountain-com.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fountain-com.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Fountain Workers API
-
-List, retrieve, update, activate, and deactivate hired workers for post-hire workforce management across the Fountain product suite.
-
-- **Human URL:** [https://developer.fountain.com/reference/workers](https://developer.fountain.com/reference/workers)
-- **Base URL:** `https://api.fountain.com/v2`
-
-#### Tags
-
-- Workers
-- Workforce Management
-- Post-Hire
-
-#### Properties
-
-- [Documentation](https://developer.fountain.com/reference/workers)
-- [OpenAPI](openapi/fountain-com-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fountain-com.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fountain-com.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/fountaininc)
 - [Website](https://www.fountain.com)
 - [Documentation](https://developer.fountain.com/reference)
-- [Plans](plans/fountain-com-plans-pricing.yml)
-- [Rate Limits](rate-limits/fountain-com-rate-limits.yml)
-- [Fin Ops](finops/fountain-com-finops.yml)
+- [Blog](https://www.fountain.com/blog)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 31.6** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 49.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 22.4 |
+| Developer ergonomics | 26.2 |
+| Access clarity | 7.9 |
+
+**Agent readiness 35.4** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | unknown |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 17.6** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/fountain-com/](https://apis.io/providers/fountain-com/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Fountain: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/fountain-com/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
